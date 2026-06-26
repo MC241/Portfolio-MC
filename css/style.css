@@ -1,0 +1,458 @@
+/*===========================================================================================
+                                        BASE/GLOBAL
+============================================================================================*/
+:root{
+    /*--- Fonts ---*/
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Jost", system-ui, sans-serif;
+
+    /*--- Colors ---*/
+    /* Backgrounds*/
+    --cosmos:       #08080f;   /* deep space — main dark background */
+    --cosmos-2:     #0d0b1a;   /* slightly lifted space */
+    --cosmos-3:     #161030;   /* panel/card tint */
+    --white:        #F5F0EB;   /* warm paper white — home surface */
+    --white-2:      #efeee9;   /* secondary white */
+
+    /* Text */
+    --ink:          #1a1a22;   /* near-black text on white */
+    --ink-soft:     #5b5b66;   /* muted text on white */
+    --lavender:     #bfc0d1;   /* body text on dark */
+    --lavender-dim: #8b8ca0;   /* muted text on dark */
+
+    /* Accents */
+    --gold:         #e7d3a1;   /* stars, dividers, CTAs */
+    --gold-bright:  #f4e7c4;   /* hover state */
+    --gold-dim:     #b6a578;   /* eyebrows, meta keys */
+    --purple:       #60519b;   /* italic accent, selection */
+    --purple-glow:  #8576c4;   /* brighter purple, glows */ 
+}
+
+/*--- Typography ---*/
+h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(3.5rem, 8vw, 6rem); /* 56px → 96px */
+    line-height: 1;
+    letter-spacing: -0.01em;
+}
+
+h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.75rem, 6vw, 4.5rem); /* 44px → 72px */
+    line-height: 1.05;
+    letter-spacing: -0.005em;
+}
+
+h3 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3rem); /* 32px → 48px */
+    line-height: 1.15;
+    letter-spacing: 0;
+}
+
+h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.625rem, 2.5vw, 2rem); /* 26px → 32px */
+    line-height: 1.2;
+    letter-spacing: 0;
+}
+
+h5 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.375rem, 1.8vw, 1.5rem); /* 22px → 24px */
+    line-height: 1.25;
+    letter-spacing: 0;
+}
+
+h6 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.125rem; /* 18px — same on mobile and desktop */
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+}
+
+/* ── BODY TEXT (Jost) ── */
+
+.text-lg {
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: clamp(1.125rem, 1.5vw, 1.25rem); /* 18px → 20px */
+    line-height: 1.7;
+    letter-spacing: 0;
+}
+
+p, .text-md {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 1rem; /* 16px — same on mobile and desktop */
+    line-height: 1.65;
+    letter-spacing: 0;
+}
+
+.text-rg {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.6;
+    letter-spacing: 0;
+}
+
+.text-sm {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.8125rem; /* 13px */
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+.caption {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.75rem; /* 12px — never go below this */
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+}
+
+/* ── LABELS (Jost, uppercase) ── */
+
+.label-lg {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+}
+
+.label-md {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.75rem; /* 12px */
+    line-height: 1;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+}
+
+.label-sm {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.6875rem; /* 11px */
+    line-height: 1;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+}
+
+/* ===== BASE ===== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--sans);
+    background-image: radial-gradient(ellipse at 50% 80%, var(--cosmos-3) 0%, var(--cosmos-2) 45%, var(--cosmos) 75%);
+}
+
+/* ===== NAV ===== */
+
+header{
+    top:0;
+    left:0;
+    z-index:100;
+    background: var(--white);
+    transition: background 0.6s ease, color 0.6s ease; /* suavização */
+}
+
+header.dark {
+    background: var(--cosmos);
+}
+
+.nav-link {
+    min-width:44px;
+    min-height:44px;
+    color: var(--ink-soft);
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:6px;
+    transition: color 0.4s ease;
+}
+
+.nav-link .nav-diamond {
+    display: none;
+    width: 8px;
+    height: 8px;
+    transition: filter 0.4s ease;
+}
+
+.nav-link.active {
+    color: var(--ink);
+}
+
+.nav-link.active .nav-diamond {
+    display: inline-block;
+}
+
+header.dark .nav-link {
+    color: var(--lavender-dim);
+}
+
+header.dark .nav-link.active {
+    color: var(--lavender);
+}
+
+header.dark .nav-diamond{
+    filter: brightness(0) invert(1);
+}
+
+header.dark .navbar-toggler-icon{
+    filter:brightness(0) invert(1);
+}
+
+.navbar-toggler-icon{
+    transition:filter 0.4s ease;
+}
+
+/* ===== SCROLL DRIVER ===== */
+.scroll-driver {
+    height: calc(100vh + 30vw); /* igual ao hero-overlay */
+    z-index: 1;
+}
+
+/* ===== HERO OVERLAY ===== */
+.hero-overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100dvh + 30vw); /* usa dvh para mobile */
+    z-index: 50;
+    will-change: transform;
+}
+
+.hero-solid {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background: var(--white);
+    z-index: 0;
+}
+
+.hero-content{
+    top:0;
+    bottom:0;
+    width:100%;
+    height:100dvh;
+    z-index:1;
+}
+
+.drip-edge {
+    top: calc(100dvh - 2px);
+    left: 0;
+    width: 100%;
+    height: 30vw;
+    min-height: 120px;
+    max-height: 280px;
+    z-index: 0;
+}
+
+.hero-title {
+    color:var(--ink);
+}
+
+.hero-title em {
+    color: var(--purple);
+}
+
+.hero-tagline {
+    color: var(--ink-soft);
+}
+
+.banner{
+    width:100%;
+}
+
+.banner-line {
+    flex: 1;                    
+    height: 1px; /* antes 0.5px, agora 1px para melhor renderização */
+    background-color: #B6A578;
+    opacity: 0.6;
+}
+
+.banner-decoration {
+    flex-shrink: 0;                
+    display: flex;
+    align-items: center;
+}
+
+.banner-decoration img {
+    width: 38px;                
+    height: 20px;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    bottom: calc(30vw + 3rem);
+    color: var(--ink);
+    z-index: 1;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 30px;
+    background: var(--ink);
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(0.4); opacity: 0.4; }
+}
+
+/* ===== COSMOS SECTION ===== */
+.cosmos-section {
+    width: 100%;
+    height: 100vh;
+    overflow:hidden;
+}
+
+/* Stars */
+.stars-layer {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.star-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle var(--duration) ease-in-out var(--delay) infinite;
+    will-change: opacity; /* melhora performance */
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: var(--max-opacity); }
+}
+
+/* Cosmos content */
+.cosmos-content {
+    width: 100%;
+    padding-top: var(--nav-h);
+    z-index: 5;
+}
+
+.cosmos-title {
+    color: var(--white);
+}
+
+.cosmos-title em {
+    color: var(--lavender);
+}
+
+/* ===== PLANETS ===== */
+.planets-row {
+    gap: clamp(2rem, 6vw, 6rem);
+    z-index: 5;
+    flex-wrap: wrap;
+}
+
+.art-planet, .wd-planet{
+    height: 176px;
+    width: 176px;
+    z-index: 100;
+}
+
+.planet-name, .planet-sub{
+    color: var(--white);
+}
+
+a.planet-enter {
+    min-width:44px;
+    min-height:44px;
+    width:90px;
+    overflow:hidden;
+    color: var(--gold);
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* ===== RESPONSIVE ===== */
+/* HOVER — desktop only */
+@media (hover: hover) {
+    a.planet-enter:hover:not(:active) {
+        background-image: radial-gradient(ellipse 100% 150% at 50% 50%, rgba(182, 165, 120, 0.25) 0%, transparent 75%);
+    }
+    /* ACTIVE — the moment of click/tap */
+    a.planet-enter:active {
+    color: var(--gold-bright);
+    text-decoration:underline;
+    text-underline-offset:4px;
+    text-decoration-color:var(--gold-bright);
+    }
+}
+
+/* FOCUS — keyboard navigation */
+a.planet-enter:focus-visible {
+    color: var(--gold-bright);
+    outline: 1px solid var(--gold);
+    outline-offset: 4px;
+}
+
+/* DISABLED — links don't have a native disabled, so use a class */
+a.planet-enter.disabled {
+    color: var(--ink-soft);
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+@media (max-width: 767.98px) {
+
+    .drip-edge {
+        height: 50vw;  /* taller on mobile */
+        min-height: 160px;
+    }
+
+    .hero-overlay {
+        height: calc(100dvh + 50vw); /* match the drip height */
+    }
+
+    .scroll-driver {
+        height: calc(100dvh + 50vw);
+    }
+
+    .planet-card{
+        gap:1rem;
+    }
+
+    .planets-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+
+    .art-planet, .wd-planet{
+        width: 120px;
+        height: 120px;
+    }
+}
