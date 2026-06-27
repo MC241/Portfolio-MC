@@ -1,111 +1,111 @@
 <!DOCTYPE html>
-<html lang="pt">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Marta's Portfolio – Desenho Digital</title>
-        <!-- Google Fonts corrigidas -->
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/style.css">
-        <link rel="icon" href="./assets/diamond.svg" type="image/svg+xml">
-        <!-- Estilos adicionais específicos da página (opcional) -->
-        <style>
-            .art-gallery {
-                padding-top: calc(var(--nav-h, 80px) + 2rem);
-                background: var(--cosmos);
-                color: var(--white);
-                min-height: 100vh;
-            }
-            .art-item {
-                background: var(--cosmos-2);
-                border-radius: 1rem;
-                padding: 1.5rem;
-                transition: transform 0.3s ease;
-            }
-            .art-item:hover {
-                transform: translateY(-5px);
-            }
-            .art-item img {
-                width: 100%;
-                border-radius: 0.5rem;
-                margin-bottom: 1rem;
-            }
-        </style>
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Drawing — Marta's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./assets/diamond.svg" type="image/svg+xml">
+</head>
+<body>
+    <section class="view d-flex flex-column">
+        <div class="container px-3 px-md-4 py-4 py-md-5">
 
-    <body>
-        <!-- NAV (igual ao index, mas com active em PROJECTS) -->
-        <header class="position-fixed w-100 dark" id="mainHeader">
-            <nav class="navbar navbar-expand-md px-3" aria-label="Navegação principal">
-                <button class="navbar-toggler border-0 ms-auto" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Alternar navegação">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-                    <ul class="navbar-nav text-nowrap">
-                        <li class="nav-item">
-                            <a class="nav-link label-lg" href="./index.html#home" data-section="home">
-                                <img src="./assets/diamond.svg" class="nav-diamond" alt=""> HOME
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link label-lg active" href="./index.html#projects" data-section="projects">
-                                <img src="./assets/diamond.svg" class="nav-diamond" alt=""> PROJECTS
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link label-lg" href="./index.html#about" data-section="about">
-                                <img src="./assets/diamond.svg" class="nav-diamond" alt=""> ABOUT ME
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link label-lg" href="./index.html#contacts" data-section="contacts">
-                                <img src="./assets/diamond.svg" class="nav-diamond" alt=""> CONTACTS
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-
-        <!-- CONTEÚDO PRINCIPAL -->
-        <main class="art-gallery container">
-            <h1 class="text-center mb-5">Desenho Digital</h1>
-            <p class="text-center text-lg mb-5">Ilustrações, pinturas e projetos criativos.</p>
-
-            <div class="row g-4">
-                <!-- Exemplo de item de galeria (substituir pelos projetos reais) -->
-                <div class="col-md-4">
-                    <div class="art-item">
-                        <img src="./assets/placeholder-art.jpg" alt="Projeto de ilustração 1" class="img-fluid">
-                        <h5>Retrato Fantasia</h5>
-                        <p class="text-sm">Ilustração digital com técnicas de pintura a óleo simuladas.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="art-item">
-                        <img src="./assets/placeholder-art.jpg" alt="Projeto de ilustração 2" class="img-fluid">
-                        <h5>Paisagem Noturna</h5>
-                        <p class="text-sm">Cena noturna com foco em iluminação e atmosfera.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="art-item">
-                        <img src="./assets/placeholder-art.jpg" alt="Projeto de ilustração 3" class="img-fluid">
-                        <h5>Personagem Estilizado</h5>
-                        <p class="text-sm">Design de personagem para projeto de animação.</p>
-                    </div>
-                </div>
-                <!-- Adicione mais itens conforme necessário -->
+            <!-- Back button -->
+            <div class="d-flex justify-content-end mb-4 mb-md-5">
+                <a href="./index.html#projects" class="back-btn label-md d-inline-flex text-decoration-none align-items-center gap-2">
+                    BACK TO SPACE
+                    <span class="back-icon d-flex align-items-center justify-content-center">
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                            <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </a>
             </div>
 
-            <div class="text-center mt-5">
-                <a href="./index.html" class="btn btn-outline-light label-lg">← Voltar ao início</a>
-            </div>
-        </main>
+            <!-- Section header -->
+            <p class="label-lg planet-label mb-2">PLANET 1 - PAINTING &amp; ILLUSTRATION</p>
+            <h2 class="subject mb-2">Digital Drawing</h2>
+            <p class="desc text-lg mb-3">Click on a project to explore more about it.</p>
+            <hr class="h-rule mb-4 mb-md-5">
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="./js/script.js"></script>
-    </body>
+            <!-- Project cards -->
+            <div class="row g-4 g-lg-5">
+
+                <!-- Card 1: Yohoshiro -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="project-card h-100 d-flex flex-column gap-3">
+                        <div class="card-img-wrapper">
+                            <img src="./assets/art-images/Yohoshiro-Final.png" alt="Yohoshiro illustration" class="thumbnail w-100">
+                        </div>
+                        <p class="project-num label-md mb-0">PROJECT 1</p>
+                        <h3 class="project-title mb-0">Yohoshiro</h3>
+                        <p class="project-desc mb-0">Published illustration on an article from the Portuguese newspaper "Mensagem de Lisboa".</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">PUBLICATION</span>
+                        </div>
+                        <a href="./yohoshiro.html" class="cta-btn d-inline-flex align-items-center text-decoration-none gap-1 label-lg p-0">
+                            VIEW PROJECT
+                            <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
+                                <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.5 4.5H16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Bougainvilleas -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="project-card h-100 d-flex flex-column gap-3">
+                        <div class="card-img-wrapper">
+                            <img src="./assets/art-images/Boganvilias_-_Final.png" class="thumbnail w-100"
+                                alt="Bougainvilleas illustration">
+                        </div>
+                        <p class="project-num label-md mb-0">PROJECT 2</p>
+                        <h3 class="project-title mb-0">Bougainvilleas</h3>
+                        <p class="project-desc mb-0">Illustration made based on an article from the Portuguese newspaper "Mensagem de Lisboa".</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">NEWSARTICLE</span>
+                            <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">INTERPRETATION</span>
+                        </div>
+                        <a href="./bougainvilleas.html" class="cta-btn d-inline-flex align-items-center text-decoration-none gap-1 label-lg p-0">
+                            VIEW PROJECT
+                            <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
+                                <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.5 4.5H16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: 5 Styles -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="project-card h-100 d-flex flex-column gap-3">
+                        <div class="card-img-wrapper">
+                            <img src="./assets/5 estilos/5_Estilos_-_Traço_e_Mancha.png" alt="5 Styles illustration" class="thumbnail w-100">
+                        </div>
+                        <p class="project-num label-md mb-0">PROJECT 3</p>
+                        <h3 class="project-title mb-0">5 Styles</h3>
+                        <p class="project-desc mb-0">Interpretation of a reference drawing in 5 different styles.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">5 STYLES</span>
+                            <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">ADAPTABILITY</span>
+                        </div>
+                        <a href="./five-styles.html" class="cta-btn d-inline-flex align-items-center text-decoration-none gap-1 label-lg p-0">
+                            VIEW PROJECT
+                            <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
+                                <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.5 4.5H16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

@@ -1,124 +1,206 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// ===== GERAÇÃO DE ESTRELAS =====
+// ===== STAR GENERATION =====
 (function createStars() {
-    const layer = document.getElementById('starsLayer');
+    const layer = document.getElementById("starsLayer");
     if (!layer) return;
-    // Reduzido para 80 estrelas (melhor performance)
+
     const count = 80;
     for (let i = 0; i < count; i++) {
-        const star = document.createElement('div');
-        star.className = 'star-particle';
-        star.style.left = Math.random() * 100 + '%';
-        star.style.top = Math.random() * 100 + '%';
-        const size = (Math.random() * 2 + 1) + 'px';
+        const star = document.createElement("div");
+        star.className = "star-particle";
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
+        const size = (Math.random() * 2 + 1) + "px";
         star.style.width = size;
         star.style.height = size;
-        star.style.setProperty('--duration', (Math.random() * 4 + 2) + 's');
-        star.style.setProperty('--delay', (Math.random() * 4) + 's');
-        star.style.setProperty('--max-opacity', (Math.random() * 0.6 + 0.3).toString());
+        star.style.setProperty("--duration", (Math.random() * 4 + 2) + "s");
+        star.style.setProperty("--delay", (Math.random() * 4) + "s");
+        star.style.setProperty("--max-opacity", (Math.random() * 0.6 + 0.3).toString());
         layer.appendChild(star);
     }
 })();
 
-// ===== REFERÊNCIAS =====
-const heroOverlay = document.getElementById('heroOverlay');
+// ===== REFERENCES =====
+const home = document.getElementById("home");
 const header = document.querySelector("header");
 let overlayTravel = 0;
 
-// ===== CALCULAR ALTURA DO OVERLAY =====
+// ===== CALCULATE OVERLAY HEIGHT =====
+// How far the hero overlay has to travel upward to fully leave the screen
 function calcOverlayTravel() {
-    overlayTravel = heroOverlay.offsetHeight;
+    overlayTravel = home.offsetHeight;
 }
 calcOverlayTravel();
-window.addEventListener('resize', calcOverlayTravel);
+window.addEventListener("resize", calcOverlayTravel);
 
-// ===== DEFINIR ALTURA DA NAVBAR (variável CSS) =====
+// ===== DEFINING NAVBAR HEIGHT =====
+//Stores the navbar height as a CSS variable
 function setNavOffset() {
-    const navbar = document.querySelector('.navbar');
+    const navbar = document.querySelector(".navbar");
     if (navbar) {
-        document.documentElement.style.setProperty('--nav-h', navbar.offsetHeight + 'px');
+        document.documentElement.style.setProperty("--nav-h", navbar.offsetHeight + "px");
     }
 }
 setNavOffset();
-window.addEventListener('resize', setNavOffset);
+window.addEventListener("resize", setNavOffset);
 
-// ===== GSAP SCROLLTRIGGER (hero pin + transição) =====
+// ===== GSAP SCROLLTRIGGER (hero pin + TRANSITION) =====
 const tl = gsap.timeline({
     scrollTrigger: {
-        trigger: '#scrollDriver',
-        start: 'top top',
-        end: 'bottom top',
+        trigger: "#scrollDriver",
+        start: "top top",
+        end: "bottom top",
         scrub: 0.5,
+        onLeave() {
+            home.style.visibility = "hidden";
+            home.style.pointerEvents = "none";
+        },
+        onEnterBack(){
+            home.style.visibility ="visible";
+            home.style.pointerEvents = "auto";
+            gsap.set(".hero-content , .scroll-indicator", {
+                opacity:1,
+                yPercent: 0,
+            });
+        },
         onUpdate(self) {
             const p = self.progress;
-            // Desliza o overlay para cima
-            heroOverlay.style.transform = `translateY(${-p * overlayTravel}px)`;
-            // Alterna o tema do header
+            // Sliding hero overlay upwards
+            home.style.transform = `translateY(${-p * overlayTravel}px)`;
+            // Changing header theme (light to dark)
             if (p > 0.70) {
-                header.classList.add('dark');
-                updateActiveNav('projects');
+                header.classList.add("dark");
             } else {
-                header.classList.remove('dark');
-                updateActiveNav('home');
+                header.classList.remove("dark");
             }
         }
     }
 });
 
-// Animação de saída do conteúdo do hero
+// Animation of hero content sliding up and dissapearing
 tl.to(".hero-content, .scroll-indicator", {
     yPercent: -20,
     opacity: 0,
     ease: "none"
 }, 0);
 
-// ===== ANIMAÇÕES DE ENTRADA =====
-gsap.from('.cosmos-title', {
+// ===== ENTRANCE ANIMATIONS =====
+gsap.from(".cosmos-title", {
     opacity: 0,
     scale: 0.85,
-    ease: 'power2.out',
+    ease: "power2.out",
     scrollTrigger: {
-        trigger: '#cosmos',
-        start: 'top 50%',
-        end: 'top top',
+        trigger: "#projects",
+        start: "top 50%",
+        end: "top top",
         scrub: 1,
     }
 });
 
-gsap.from('.planet-card', {
+gsap.from(".planet-card", {
     scale: 0,
-    ease: 'power2.out',
+    ease: "power2.out",
     scrollTrigger: {
-        trigger: '.planets-row',
-        start: 'top 90%',
-        end: 'bottom 60%',
+        trigger: ".planets-row",
+        start: "top 90%",
+        end: "bottom 80%",
         scrub: 1,
-    },
-    stagger: 0.5,
+    }
 });
 
-// ===== FUNÇÃO PARA ATUALIZAR O NAV ATIVO =====
+// ===== FUNCTION TO UPDATE NAVIGATION BAR =====
 function updateActiveNav(section) {
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.toggle('active', link.dataset.section === section);
+    document.querySelectorAll(".nav-link").forEach(link => {
+        link.classList.toggle("active", link.dataset.section === section);
     });
 }
 
-// ===== NAVEGAÇÃO POR CLIQUE (âncoras suaves) =====
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const section = this.dataset.section;
-        const target = document.getElementById(section);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-            updateActiveNav(section);
+// NAVIGATION THROUGH SCROLL
+const sectionIds=["home", "projects", "about", "contacts"];
+
+function getActiveSection() {
+    // How far the user has scrolled from the top
+    const navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--nav-h")) || 0;
+
+    //Lopping backwards through sections: last section whose top has scrolled past the navbar is the section currently on screen
+    for (let i = sectionIds.length -1; i>= 0; i--){
+        const el = document.getElementById(sectionIds[i]);
+        if (!el) continue;
+
+        //Since home is fixed, use scrollDriver as a stand in position marker for home instead
+        let proxy;
+        if(sectionIds[i] === "home"){
+            proxy = document.getElementById("scrollDriver");
+        }else{
+            proxy = el;
         }
+        //getBoundingclientrest: gives the element's distance from the top of the viewport
+        //when value <= navbar height + 10 px buffer => section has scroller into view past the nav bar so it's the active one.
+        if (proxy.getBoundingClientRect().top <= navH + 10){
+            return sectionIds[i]
+        }
+    }
+    return "home";
+}
+
+//Flags to prevent scroll listener fighting with click navigation
+let isScrollingFromClick = false;
+let scrollTimeout;
+let requestAnimationFramePending = false;
+
+//set correct active link on page load
+updateActiveNav(getActiveSection());
+
+
+// ===== NAVIGATION THROUGH CLICK =====
+//Click a nav link, scroll to that section and lock active state during scrolling
+document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", function(e) {
+        e.preventDefault();
+        //Reading which section was clicked
+        const section = this.dataset.section;
+
+        //Lock active state so scroll listener doesn't interfere
+        isScrollingFromClick = true;
+        //Cancel previous unlock timer that might still be running
+        clearTimeout(scrollTimeout);
+        //highlight clicked link right away
+        updateActiveNav(section);
+
+        if (section === "home"){
+            window.scrollTo({top:0, behavior:"smooth"});
+        } else {
+            const target = document.getElementById(section);
+            if (target) target.scrollIntoView({ behavior: "smooth" });
+        }
+
+        const navMenu = document.getElementById("navMenu");
+        const bsCollapse = bootstrap.Collapse.getInstance(navMenu);
+        if (bsCollapse) bsCollapse.hide();
+        //After the smooth scroll happens, unlock the scroll listener again so it can resume updating the active link as the user scrolls
+        scrollTimeout = setTimeout (() => {
+            isScrollingFromClick = false;
+        }, 800);
     });
 });
 
-// ===== (OPCIONAL) ATUALIZAR O SCROLLTRIGGER APÓS CARREGAMENTO =====
-window.addEventListener('load', () => {
+//Runs getActiveSection() on every scroll event and passes the result to updateActiveNav() to toggle the active class.
+window.addEventListener("scroll", () => {
+    //ignore while a click scroll is running
+    if (isScrollingFromClick) return;
+    if (requestAnimationFramePending) return;
+    requestAnimationFramePending = true;
+    //pre-set browser function: keeps code in sync with screen's natual refresh rate
+    requestAnimationFrame (() => {
+        updateActiveNav(getActiveSection());
+        requestAnimationFramePending = false;
+    });
+}, {passive:true});
+
+
+// ===== UPDATING SCROLL TRIGGER AFTER LOADING =====
+//Recalculates scroll position once images/fonts are fully loaded
+window.addEventListener("load", () => {
     ScrollTrigger.refresh();
 });
