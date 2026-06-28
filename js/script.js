@@ -1,5 +1,23 @@
 gsap.registerPlugin(ScrollTrigger);
 
+// ===== FUNCTION TO UPDATE NAVIGATION BAR =====
+function updateActiveNav(section) {
+    document.querySelectorAll(".nav-link").forEach(link => {
+        link.classList.toggle("active", link.dataset.section === section);
+    });
+}
+
+// ===== SCROLL CUE =====
+(function setupScrollCue(){
+    const cue = document.getElementById("scrollCue");
+    const cosmos = document.getElementById("projects");
+    if (!cue || !cosmos) return;
+
+    cue.addEventListener("click", () => {
+        cosmos.scrollIntoView({behavior:"smooth"});
+    });
+})();
+
 // ===== STAR GENERATION =====
 (function createStars() {
     const layer = document.getElementById("starsLayer");
@@ -21,53 +39,58 @@ gsap.registerPlugin(ScrollTrigger);
     }
 })();
 
-// ===== REFERENCES =====
-const home = document.getElementById("home");
+// ===== SCROLL GEOMETRY =====
+
+const heroOverlay = document.getElementById("home");
+const scrollDriver = document.getElementById("scrollDriver");
 const header = document.querySelector("header");
+
 let overlayTravel = 0;
 
-// ===== CALCULATE OVERLAY HEIGHT =====
-// How far the hero overlay has to travel upward to fully leave the screen
-function calcOverlayTravel() {
-    overlayTravel = home.offsetHeight;
+function calcScrollGeometry(){
+    if(!heroOverlay || !scrollDriver) return;
+
+    const overlayHeight = heroOverlay.offsetHeight;
+
+    overlayTravel = Math.max(overlayHeight, window.innerHeight);
+
+    scrollDriver.style.height = overlayTravel + "px";
 }
-calcOverlayTravel();
-window.addEventListener("resize", calcOverlayTravel);
 
 // ===== DEFINING NAVBAR HEIGHT =====
 //Stores the navbar height as a CSS variable
 function setNavOffset() {
-    const navbar = document.querySelector(".navbar");
-    if (navbar) {
+    const navbar = document.querySelector("header");
+    if (!navbar) return;
         document.documentElement.style.setProperty("--nav-h", navbar.offsetHeight + "px");
-    }
 }
+
+calcScrollGeometry();
 setNavOffset();
-window.addEventListener("resize", setNavOffset);
+
+let  resizeRAF = null;
+window.addEventListener("resize", () => {
+    if(resizeRAF) cancelAnimationFrame(resizeRAF);
+    resizeRAF = requestAnimationFrame(() =>{
+        calcScrollGeometry();
+        setNavOffset();
+        ScrollTrigger.refresh();
+    });
+
+});
 
 // ===== GSAP SCROLLTRIGGER (hero pin + TRANSITION) =====
-const tl = gsap.timeline({
+const heroTimeline = gsap.timeline({
     scrollTrigger: {
         trigger: "#scrollDriver",
         start: "top top",
         end: "bottom top",
         scrub: 0.5,
-        onLeave() {
-            home.style.visibility = "hidden";
-            home.style.pointerEvents = "none";
-        },
-        onEnterBack(){
-            home.style.visibility ="visible";
-            home.style.pointerEvents = "auto";
-            gsap.set(".hero-content , .scroll-indicator", {
-                opacity:1,
-                yPercent: 0,
-            });
-        },
+        invalidateOnRefresh: true,
         onUpdate(self) {
             const p = self.progress;
             // Sliding hero overlay upwards
-            home.style.transform = `translateY(${-p * overlayTravel}px)`;
+            heroOverlay.style.transform = `translateY(${-p * overlayTravel}px)`;
             // Changing header theme (light to dark)
             if (p > 0.70) {
                 header.classList.add("dark");
@@ -78,8 +101,13 @@ const tl = gsap.timeline({
     }
 });
 
+heroTimeline.to(heroOverlay,{
+    y: () => -overlayTravel,
+    ease:"none",
+}, 0);
+
 // Animation of hero content sliding up and dissapearing
-tl.to(".hero-content, .scroll-indicator", {
+heroTimeline.to(".hero-content, .scroll-indicator", {
     yPercent: -20,
     opacity: 0,
     ease: "none"
@@ -109,12 +137,7 @@ gsap.from(".planet-card", {
     }
 });
 
-// ===== FUNCTION TO UPDATE NAVIGATION BAR =====
-function updateActiveNav(section) {
-    document.querySelectorAll(".nav-link").forEach(link => {
-        link.classList.toggle("active", link.dataset.section === section);
-    });
-}
+
 
 // NAVIGATION THROUGH SCROLL
 const sectionIds=["home", "projects", "about", "contacts"];
