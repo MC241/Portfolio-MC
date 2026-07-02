@@ -119,33 +119,42 @@ function initStageProgress(root, settings) {
         fill.style.width = `${starCenterX - fillInsetLeft}px`;
     }
 
+    //Matches the progress bar's width with the width of carousel
     function syncProgressWidth() {
-        const activeSlide = swiperE1.querySelector(".swiper-slide-active");
-        const content = activeSlide && activeSlide.firstElementChild;
-        if (!content) return;
-        const width = content.getBoundingClientRect().width;
+        const width = swiperE1.getBoundingClientRect().width;
         if (width > 0){
             progressE1.style.width = `${width}px`;
         }
     }
 
-    const swiper = new Swiper (swiperE1, {
+    new Swiper (swiperE1, {
         loop: loop,
         speed: 700,
         autoplay: {
-            delay:autoplayDelay,
+            delay: autoplayDelay,
             disableOnInteraction: false,
         },
         pagination: {
-            el:tagsE1,
+            el: tagsE1,
             clickable: true,
+            //Not actually calling the function, just telling Swipper to call renderTagBullets instead of swiper's default pagination bullets.
             renderBullet: renderTagBullets,
         },
         on:{
-            slideChange: function(sw){
-                syncTrack(loop ? sw.realIndex : sw.activeIndex);
-                syncProgressWidth();
+            //If loop mode is on, swiper will duplicate slides to create an infinite scroll effect.
+            //This function tells swiper to always point to the true version of the slide.
+            slideChange: function(sw) {
+                let indexToUse;
+                if(loop) {
+                    indexToUse = sw.realIndex;
+                } else {
+                    indexToUse = sw.activeIndex;
+                }
+                //Syncs the progress bar and star with the active slide
+                syncTrack(indexToUse);
             },
+            //Fires after swiper finishes recalculating its own layout on window resize
+            //Using swipers own event avoids measuring one step too early before swiper has updaated itself.
             resize : function(){
                 syncTrack(currentIndex);
                 syncProgressWidth();
@@ -153,12 +162,17 @@ function initStageProgress(root, settings) {
         },
     });
 
+    //Manually firing immediately to set the progress bar width to match the carousel, and to set the progress to the first star
+    //Wihtout this,the page would load in a visible broken state, it would need to wait for the slideChange or resize to fire
     syncTrack(0);
     syncProgressWidth();
-    return swiper;
 }
 
-document.querySelectorAll("[data-stage-progress-root]").forEach(function (root) {
-    initStageProgress(root);
-});
+//For each specific element found in the page -> create the swiper instance
+//If there are two carousels, this line runs twice, once per root: carousel's A never touches elements of carousel's B
+const allRoots = document.querySelectorAll("[data-stage-progress-root]");
 
+for (let i = 0; i < allRoots.length; i++){
+    const root = allRoots[i];
+    initStageProgress(root);
+}
