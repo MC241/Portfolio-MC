@@ -193,9 +193,9 @@ body {
 ============================================================================================*/
 
 header{
-    top:0;
-    left:0;
-    z-index:var(--z-nav);
+    top: 0;
+    left: 0;
+    z-index: var(--z-nav);
     justify-content: flex-end;
     background: var(--white);
     transition: background 0.6s ease, color 0.6s ease;
@@ -264,20 +264,20 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 }
 
 .hero-solid {
-    top:0;
-    left:0;
-    width:100%;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100vh;
     background: var(--white);
     z-index: var(--z-base);
 }
 
 .hero-content{
-    top:0;
-    bottom:0;
-    width:100%;
-    height:100vh;
-    z-index:var(--z-content);
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: var(--z-content);
 }
 
 .drip-edge {
@@ -394,15 +394,12 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 /* ===== PLANETS ===== */
 .planets-row {
     z-index: var(--z-idecorative);
-    display:grid;
     grid-template-columns: 1fr;
     row-gap: 64px;
 }
 
 .planet-card{
-    will-change: transform, opacity;
-    gap: 16px;
-    padding: 8px;
+    gap: 1rem;
 }
 
 .card-art{
@@ -413,8 +410,8 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
     justify-self: end;
 }
 .art-planet, .wd-planet{
-    height: 176px;
-    width: 176px;
+    height: 130px;
+    width: 130px;
     z-index: 100;
 }
 
@@ -423,9 +420,9 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 }
 
 .planet-enter {
-    min-width:44px;
-    min-height:44px;
-    overflow:hidden;
+    min-width: 44px;
+    min-height: 44px;
+    overflow: hidden;
     color: var(--gold);
     transition: color 0.3s ease, opacity 0.3s ease;
 }
@@ -434,24 +431,24 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
                                         PROJECTS SECTION
 ============================================================================================*/
 .view{
-    min-height:100vh;
+    min-height: 100vh;
 }
 
 .back-btn{
-    min-height:44px;
-    min-width:44px;
+    min-height: 44px;
+    min-width: 44px;
     background: none;
-    padding:0;
+    padding: 0;
     color: var(--lavender-dim);
     transition: color 0.2s;
 }
 
 .back-icon{
-    width:30px;
-    height:30px;
-    border-radius:50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     border: 0.7px solid var(--lavender-dim);
-    font-size:14px;
+    font-size: 14px;
 }
 
 .subject, .project-title{
@@ -461,11 +458,11 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
     color: var(--lavender-cue);
 }
 .desc, .project-desc, .tag-pill{
-    color:var(--lavender-dim);
+    color: var(--lavender-dim);
 }
 
 .tag-pill{
-    height:25px;
+    height: 25px;
     border: 0.5px solid var(--lavender-dim);
 }
 
@@ -478,9 +475,9 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 }
 
 .thumbnail{
-    aspect-ratio:1/1; 
-    border-radius:6px;
-    object-fit:cover; 
+    aspect-ratio: 1/1; 
+    border-radius: 6px;
+    object-fit: cover; 
 }
 
 /*===========================================================================================
@@ -488,7 +485,8 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 ============================================================================================*/
 /* HOVER — desktop only */
 @media (hover: hover) {
-    a.planet-enter:hover:not(:active) {
+    span.planet-enter:hover:not(:active),
+    .cta-btn:hover:not(:active) {
         background-image: radial-gradient(ellipse 100% 150% at 50% 50%, rgba(182, 165, 120, 0.25) 0%, transparent 75%);
     }
     .back-btn:hover:not(:active){
@@ -496,23 +494,25 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
     }
 
     /* ACTIVE — the moment of click/tap */
-    a.planet-enter:active {
+    span.planet-enter:active,
+    .cta-btn:active {
     color: var(--gold-bright);
-    text-decoration:underline;
-    text-underline-offset:4px;
-    text-decoration-color:var(--gold-bright);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--gold-bright);
     }
 
     .back-btn:active{
         color: var(--lavender);
-        text-decoration:underline;
-        text-underline-offset:4px;
-        text-decoration-color:var(--lavender);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-color: var(--lavender);
     }
 }
 
 /* FOCUS — keyboard navigation */
-a.planet-enter:focus-visible {
+span.planet-enter:focus-visible,
+.cta-btn:focus-visible {
     color: var(--gold-bright);
     outline: 1px solid var(--gold);
     outline-offset: 4px;
@@ -525,16 +525,17 @@ a.planet-enter:focus-visible {
 }
 
 /* DISABLED — links don't have a native disabled, so use a class */
-a.planet-enter.disabled {
+span.planet-enter.disabled
+.cta-btn.disabled {
     color: var(--ink-soft);
     opacity: 0.4;
     pointer-events: none;
 }
 
 .back-btn.disabled{
-    color:var(--ink-soft);
-    opacity:0.4;
-    pointer-events:none;
+    color: var(--ink-soft);
+    opacity: 0.4;
+    pointer-events: none;
 }
 
 /*===========================================================================================
@@ -613,21 +614,41 @@ a.planet-enter.disabled {
 /*===========================================================================================
                                         RESPONSIVENESS
 ============================================================================================*/
-@media(min-width:600px){
+@media(max-width: 567px){
+
+    .cosmos-title{
+        margin-bottom:24px;
+    }
+
+    .planets-row{
+        row-gap: 24px;
+    }
+
+    .planet-card{
+        gap: 8px;
+    }
+}
+
+@media(min-width: 600px){
+
+    .cosmos-title{
+        margin-bottom:40px;
+    }
 
     .planets-row{
         grid-template-columns: 1fr 1fr;
-        column-gap: 32px;
+        column-gap: 24px;
     }
 
     .card-art{
-        grid-column:1;
+        grid-column: 1;
     }
 
     .card-wd{
         grid-column: 2;
-        margin-top: 64px;
+        margin-top: 48px;
     }
+
 }
 
 @media (min-width: 768px){
@@ -638,6 +659,10 @@ a.planet-enter.disabled {
 
     .cosmos-content{
         max-width: 900px;
+    }
+
+    .cosmos-title{
+        margin-bottom: 64px;
     }
 
     .about-body {
@@ -657,20 +682,5 @@ a.planet-enter.disabled {
     }
 }
 
-@media (max-width: 620px) {
 
-    .planets-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
 
-    .art-planet, .wd-planet{
-        width: 120px;
-        height: 120px;
-    }    
-
-    .planet-card{
-        gap:1rem;
-    }
-}

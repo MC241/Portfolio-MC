@@ -1,0 +1,141 @@
+/*===========================================================================================
+                        PROJECT DETAIL PAGE - Shared by all 6 case-study pages
+============================================================================================*/
+.project-body{
+    max-width: min(100%, 90vh);
+}
+
+.project-number{
+    color: var(--lavender-cue);
+}
+
+.project-body{
+    color:var(--lavender);
+}
+
+.project-hero-image{
+    max-width: 100%;
+    max-height: 90vh;
+}
+
+.project-divider{
+    height: 1px;
+    background: var(--lavender);
+    opacity: 0.25;
+}
+.project-metadata-key, .project-section-label{
+    color: var(--gold-dim);
+
+}
+.carousel-image{
+    max-width: 90vh;
+    max-height: 90vh;
+}
+
+.figure-caption{
+    color: var(--lavender-dim);
+}
+
+.stage-progress{
+    width: min(560px, 90vw);
+    margin-top: 20px;
+}
+
+.stage-track{
+    height: 40px;
+}
+
+.stage-track-line{
+    left:20px;
+    right: 20px;
+    height: 2px;
+    background: var(--lavender-dim);
+    opacity:0.25;
+}
+
+.stage-track-fill{
+    left:20px;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, rgba(231,211,161,0.05), var(--gold));
+    transition: width 0.65s var(--ease-standard);
+}
+
+.stage-star-slot{
+    width: 40px;
+    height: 40px;
+}
+
+.stage-star{
+    width: 16px;
+    height: 16px;
+    fill: var(--lavender-dim);
+    opacity: 0.55;
+    transform: scale(1);
+    transition: transform 0.5s var(--ease-standard), 
+                fill 0.5s var(--ease-standard), 
+                opacity 0.5s var(--ease-standard), 
+                filter 0.5s var(--ease-standard);
+}
+
+.stage-star-slot.is-active .stage-star{
+    fill: var(--gold);
+    opacity: 1;
+    transform: scale(1.5);
+    filter:drop-shadow(0 0 4px rgba(244,231,196,0.9)) drop-shadow(0 0 8px rgba(231,211,161,0.5));
+}
+
+.stage-tags{
+    margin-top: 14px;
+}
+
+.stage-tag{
+    min-width: 44px;
+    min-height: 44px;
+    background: none;
+    padding: 0;
+    color: var(--lavender-dim);
+    transition: color 0.5s var(--ease-standard), 
+                filter 0.5s var(--ease-standard), 
+                transform 0.5s var(--ease-standard);
+}
+
+.stage-tag-icon{
+    width: 100%;
+    height: 100%;
+}
+
+.stage-tag-icon .stage-tag-outline{
+    stroke: CurrentColor;
+}
+
+.stage-tag-icon .stage-tag-num{
+    fill: CurrentColor;
+}
+
+.stage-tag:hover{
+    color: var(--gold);
+}
+
+.stage-tag.swiper-pagination-bullet-active{
+    color: var(--gold);
+    filter: drop-shadow(0 0 2px rgba(244,231,196,0.9));
+    transform: translateY(-3px);
+}
+
+.stage-tag:focus-visible{
+    outline: 1px solid var(--gold-dim);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+    .stage-track-fill, .stage-star, .stage-tag{
+        transition: none !important;
+    }
+}
+
+@media(min-width: 768px){
+    .project-hero-image{
+        height: 100vh;
+    }
+}
