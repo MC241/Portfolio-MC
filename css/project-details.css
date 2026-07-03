@@ -2,7 +2,7 @@
                         PROJECT DETAIL PAGE - Shared by all 6 case-study pages
 ============================================================================================*/
 .project-body{
-    max-width: min(100%, 90vh);
+    max-width: min(100%, 85vh);
     color: var(--lavender);
 }
 
@@ -12,7 +12,7 @@
 
 .project-hero-image{
     max-width: 100%;
-    max-height: 90vh;
+    max-height: 85vh;
 }
 
 .project-divider{
@@ -31,13 +31,13 @@
 /*========================================CAROUSEL PROGRESS BAR===================================*/
 
 .carousel-image{
-    max-height: 90vh;
+    max-height: 85vh;
 }
 
 /*just a fallback value for the progress bar's width in case JavaScript fails to calculate it.*/
 .stage-progress{
-    width: min(560px, 90vw);
-    margin-top: 20px;
+    width: min(560px, 80vw);
+    margin-top: 15px;
 }
 
 .stage-track{

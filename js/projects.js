@@ -79,6 +79,7 @@ function initStageProgress(root, settings) {
     settings = settings || {};
     const autoplayDelay = settings.autoplayDelay || 3200;
     const loop = settings.loop || false;
+    const showFill = settings.showFill !== false;
 
     const swiperE1 = root.querySelector("[data-stage-swiper]");
     const track = root.querySelector("[data-stage-track]");
@@ -91,6 +92,10 @@ function initStageProgress(root, settings) {
     //Array of stars with number of stars corresponding to the number of slides
     const starSlots = buildStarTrack(track, slideCount);
 
+    if(!showFill){
+        fill.style.display="none";
+    }
+
     //Moves the gold fill line to exactly the active star and lights that star up.
     let currentIndex = 0;
     function syncTrack(activeIndex) {
@@ -100,6 +105,9 @@ function initStageProgress(root, settings) {
             const shouldBeActive = (i === activeIndex);
             slot.classList.toggle("is-active", shouldBeActive);
         }
+
+        if(!showFill) return;
+
         //Returns the position of the progress bar on the screen
         const trackRect = track.getBoundingClientRect();
         //Returns the position of the active star on the screen
@@ -125,6 +133,10 @@ function initStageProgress(root, settings) {
     new Swiper (swiperE1, {
         loop: loop,
         speed: 700,
+        effect:"fade",
+        fadeEffect: {
+            crossFade: true,
+        },
         autoplay: {
             delay: autoplayDelay,
             disableOnInteraction: false,
@@ -169,10 +181,6 @@ const allRoots = document.querySelectorAll("[data-stage-progress-root]");
 
 for (let i = 0; i < allRoots.length; i++){
     const root = allRoots[i];
-    initStageProgress(root);
+    const showFill = root.dataset.stageFill !== "false";
+    initStageProgress(root, {showFill});
 }
-
-document.querySelectorAll('.stage-tag').forEach((btn, i) => {
-    const r = btn.getBoundingClientRect();
-    console.log(`tag ${i+1}: left=${r.left.toFixed(1)} top=${r.top.toFixed(1)}`);
-});
