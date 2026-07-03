@@ -45,15 +45,15 @@
 }
 /*Left and right 20 px padding to match the center of the first and last star in the stage-track*/
 .stage-track-line{
-    left: 20px;
-    right: 20px;
+    left: 22px;
+    right: 22px;
     height: 2px;
     background: var(--lavender-dim);
     opacity: 0.25;
 }
 
 .stage-track-fill{
-    left: 20px;
+    left: 22px;
     height: 2px;
     width: 0%;
     background: linear-gradient(90deg, rgba(231,211,161,0.05), var(--gold));
@@ -61,7 +61,7 @@
 }
 
 .stage-star-slot{
-    width: 40px;
+    width: 44px;
     height: 40px;
 }
 
