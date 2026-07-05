@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Marta's Portfolio</title>
+        <!--Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Swiper -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/project-details.css">
+    </head>
+
+    <body class="art-page project-page container p-3 min-vh-100">
+        <div class="d-flex justify-content-end mb-2 mb-md-3">
+            <a href="./index.html#projects">
+                <span class="back-btn label-md d-inline-flex align-items-center gap-2">BACK TO PROJECTS
+                    <span class="back-icon d-flex align-items-center justify-content-center">
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                            <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </span>
+            </a>
+        </div>
+
+        <main class="project-main">
+            <div class="project-body d-flex flex-column gap-5 mx-auto">
+                <div class="project-hero reveal">
+                    <p class="project-number label-lg">PROJECT 1</p>
+                    <picture>
+                        <source srcset="./assets/wd-images/prisma_pt.webp" type="image/webp">
+                        <img src="./assets/wd-images/prisma_pt.png" class="project-hero-image d-block w-auto h-auto mx-auto rounded mb-4" width="1600" height="1600" alt="Prisma PT app splash screen: a white deiamond icon with a muticolor triangular flag, and the tagline 'Onde a política tem mais do que um lado'.">
+                    </picture>
+                    <div class="project-title-block d-flex flex-column gap-3">
+                        <h3 class="project-title mb-0">Prisma PT</h3>
+                        <p class="mb-0">A political news and learning app for young Portuguese adults.</p>
+                        <div class="metadata py-3">
+                            <div class="meta-data row align-items-center justify-content-center gx-0 gy-3 mx-0">
+                                <div class="project-metadata-col col-12 col-sm-6 col-md-3 d-flex flex-column gap-1">
+                                    <span class="project-metadata-key label-lg">ROLE</span>
+                                    <span class="project-metadata-value text-md">Solo designer</span>
+                                </div>
+                                <div class="project-metadata-col col-12 col-sm-6 col-md-3 d-flex flex-column gap-1">
+                                    <span class="project-metadata-key label-lg">YEAR</span>
+                                    <span class="project-metadata-value text-md">2025</span>
+                                </div>
+                                <div class="project-metadata-col col-12 col-sm-6 col-md-3 d-flex flex-column gap-1">
+                                    <span class="project-metadata-key label-lg">TOOLS</span>
+                                    <span class="project-metadata-value text-md">Figma</span>
+                                </div>
+                                <div class="project-metadata-col col-12 col-sm-6 col-md-3 d-flex flex-column gap-1">
+                                    <span class="project-metadata-key label-lg">TYPE</span>
+                                    <span class="project-metadata-value text-md">Coursework</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section reveal">
+                    <p class="project-section-label label-lg">OVERVIEW</p>
+                    <p class="project-section-body text-md mb-0">Most people aged 18-35 learn about politics through social media: passively, impulsively, and without reliable sources. Prisma is a mobile app that turns scroll into structured understanding with verified news and side-by-side party positions designed for users who want to think for themselves. Research with 33 participants confirmed this gap, a usability test scored design 5/5 for ease of use and singled out the Debates view, which shows all party positions on one topic at once, as something no existing app offers.</p>
+                </div>
+
+                <div class="project-section reveal">
+                    <p class="project-section-label label-lg">THE PROBLEM</p>
+                    <h4 class="project-pullquote mb-3 ps-3">People scroll politics but never <em>understand it.</em></h4>
+                    <p class="project-section-body text-md">A survey of 33 young adults found that over 60% spend more than an hour a day on social media, yet most feel confused or misinformed on political topics. Clickbait, absent sources, and opinions dressed as facts leave users with more anxiety than knowledge. </p>
+                    <picture>
+                        <source srcset="./assets/wd-images/survey-results.webp" type="image/webp">
+                        <img src="./assets/wd-images/survey-results.png" class="d-block mx-auto w-100 h-auto mb-2" width="1600" height="788.34">
+                    </picture>
+                    <p class="figure-caption text-rg mb-0">Survey results - top frustrations when consuming online resources</p>
+                </div>
+
+                <div class="project-section reveal">
+                    <p class="project-section-label label-lg">FULL PROCRESS</p>
+                    <h4 class="project-pullquote mb-3 ps-3">All UX stages and UI design choices can be found <a href="https://www.figma.com/slides/mcPhU30jbVceLXm5i6HRRL" target="_blank" class="link-project">here</a> in <em>full detail</em></h4>
+                    <ul class="project-process-steps project-section-body list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li class="text-md">1. <a href="https://www.figma.com/deck/mcPhU30jbVceLXm5i6HRRL/Prisma-PT?node-id=1-83" target="_blank" class="link-project">Empathy:</a> desk research; questionnaire; personas; benchmarking (slides 2-12)</li>
+                        <li class="text-md">2. <a href="https://www.figma.com/deck/mcPhU30jbVceLXm5i6HRRL/Prisma-PT?node-id=1-140"target="_blank" class="link-project">Strategy:</a> user journey; user stories; How might we; Sitemap (slides 12-16)</li>
+                        <li class="text-md">3. <a href="https://www.figma.com/deck/mcPhU30jbVceLXm5i6HRRL/Prisma-PT?node-id=1-160" target="_blank" class="link-project">Ideation:</a> user flow; lo-fi, hi-fi wireframes; grid and layout (slides 17-23)</li>
+                        <li class="text-md">4. <a href="https://www.figma.com/deck/mcPhU30jbVceLXm5i6HRRL/Prisma-PT?node-id=1-195" target="_blank" class="link-project">Prototyping:</a> UI kit (slides 24-27)</li>
+                        <li class="text-md">5. <a href="https://www.figma.com/deck/mcPhU30jbVceLXm5i6HRRL/Prisma-PT?node-id=1-215" target="_blank" class="link-project">Validation:</a> usability testing (slides 28-39)</li>
+                    </ul>
+                </div>
+
+                <div class="project-section reveal">
+                    <p class="project-section-label label-lg">PROCESS SUMMARY</p>
+                    <h4 class="project-pullquote mb-3 ps-3">Built from research <em>tested</em> once it was real.</h4>
+                    <p class="project-section-body text-md">The design was fully build before anyone using it. That’s the opposite of the process I would choose if I had more time. This means that the usability test became high-stakes rather than iterative. What it revealed was useful: the Debates page had all party positions expanded by default, which was overwhelming. A single round of low-fi testing would probably have caught that sooner. The tester suggested collapsing to headings first, letting users open only what they wanted to read. That change made it into the final design.</p>
+                    <div class="progress-images d-flex flex-row gap-4 mb-2">
+                        <picture>
+                            <source srcset="./assets/wd-images/debates1.webp" type="image/webp">
+                            <img src="./assets/art-images/wd-images/debates1.png" class="d-block mx-auto w-100 h-auto" width="741" height="1552" alt="Yohoshiro illustration published in Mensagem de Lisboa, 2025">
+                        </picture>
+
+                        <picture>
+                            <source srcset="./assets/wd-images/debates2.webp" type="image/webp">
+                            <img src="./assets/wd-images/debates2.png" class="d-block mx-auto w-100 h-auto rounded" width="741" height="989" alt="Yohoshiro's instagram thank you post for publised article in Mensagem de Lisboa">
+                        </picture>
+                    </div>
+                    <p class="figure-caption text-rg mb-0">Right: party's arguments fully expanded. Left: party's arguments collaped after testing.</p>
+                </div>
+
+                <div class="project-section reveal">
+                    <p class="project-section-label label-lg">FINAL DESIGN</p>
+                    <h4 class="project-pullquote mb-3 ps-3">Find the full prototype <a href="https://www.figma.com/design/NIF64zrHJScTJfmIrRyeGj/Prisma-PT-final" class="link-project">here.</a></h4>
+                    <p class="figure-caption text-rg mb-0">NEED TO PUT VIDEO</p>
+                </div>
+
+                <div class="project-outcome reveal d-flex flex-column w-100 p-3 rounded-2 gap-3">
+                    <p class="project-section-label label-lg mb-0">OUTCOME</p>
+                    <p class="text-lg mb-0"><em>Usability testing scored 5/5 for ease of use and 5/5 for clarity. The tester called the Debates page “super important” - noting no existing product shows party positions side by side on one topic.</em> </p>
+                </div>
+
+                <div class="project-section reveal">
+                    <p class="project-section-label label-lg">WHAT I WOULD DO NEXT</p>
+                    <p class="text-md mb-0">The tester suggested adding article links to news summaries, and using topic tags on the Debates page. I would increase the sample of usability tests and with users who have less prior political knowledge - the Concepts section is likely more important to them, and I haven’t validated that yet.</p>
+                </div>
+
+                <nav class="project-pagination d-flex flex-row justify-content-between" aria-label="Project navigation">
+                    <a href="./lsd-connect" class="text-decoration-none">
+                        <span class="cta-btn label-lg d-inline-flex align-items-center gap-2 p-0">
+                            <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true" style="transform: scaleX(-1)">
+                                <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.5 4.5H16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg> PREVIOUS
+                        </span>
+                    </a>
+                    <a href="./eucerin.html" class="text-decoration-none">
+                        <span class="cta-btn label-lg d-inline-flex align-items-center gap-1 p-0">NEXT
+                            <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
+                                <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.5 4.5H16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+        <script src="./js/projects.js"></script>
+    </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Marta's Portfolio</title>
+        <!--Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Swiper -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/project-details.css">
+    </head>
+
+    <body class="art-page project-page container p-3 min-vh-100">
+        <div class="d-flex justify-content-end mb-2 mb-md-3">
+            <a href="./index.html#projects">
+                <span class="back-btn label-md d-inline-flex align-items-center gap-2">BACK TO PROJECTS
+                    <span class="back-icon d-flex align-items-center justify-content-center">
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                            <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </span>
+            </a>
+        </div>
+
+        <main class="project-main">
+            <div class="project-body d-flex flex-column gap-5 mx-auto">
+                <div class="project-hero reveal">
+                    <p class="project-number label-lg">PROJECT 2</p>
+                    <picture>
+                        <source srcset="./assets/wd-images/eucerin1.webp" type="image/webp">
+                        <img src="./assets/wd-images/eucerin.png" class="project-hero-image d-block w-auto h-auto mx-auto rounded mb-4" width="1607" height="1022" alt= "Eucerin Anti-Pigment hero section: headline on dark spots, a hand aplying serum to a model's face, and a 'discover your Routine' CTA.">
+                    </picture>
+                    <div class="project-title-block d-flex flex-column gap-3">
+                        <h3 class="project-title mb-0">Eucerin x Rita Pereira</h3>
+                        <p class="mb-0">A landing page concept for Anti-Pigment skincare campaign.</p>
+                        <div class="metadata py-3">
+                            <div class="meta-data row align-items-center justify-content-center gx-0 gy-3 mx-0">
+                                <div class="project-metadata-col col-12 col-sm-6 col-md-3 d-flex flex-column gap-1">
+                                    <span class="project-metadata-key label-lg">ROLE</span>
+                                    <span class="project-metadata-value text-md">Solo designer</span>
+                                </div>
+                                <div class="project-metadata-col col-12 col-sm-6 col-md-3 d-flex flex-column gap-1">
+                                    <span class="project-metadata-key label-lg">YEAR</span>
+                                    <span class="project-metadata-value text-md">2026</span>
+                                </div>
+                                <div class="project-metadata-col col-12 col-sm-6 col-md-3 d-flex flex-column gap-1">
+                                    <span class="project-metadata-key label-lg">TOOLS</span>
+                                    <span class="project-metadata-value text-md">Figma</span>
+                                </div>
+                                <div class="project-metadata-col col-12 col-sm-6 col-md-3 d-flex flex-column gap-1">
+                                    <span class="project-metadata-key label-lg">TYPE</span>
+                                    <span class="project-metadata-value text-md">Class Exercice</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section reveal">
+                    <p class="project-section-label label-lg">OVERVIEW</p>
+                    <p class="project-section-body text-md mb-0">Eucerin's Facebook ad featuring Rita Pereira promised visible results in 12 weeks, but the existing product page wasn't built to convert. This concept landing page was designed to bridge that gap: a single-goal page that converts cold ad traffic into leads through a free sample request, guiding the user from curiosity to conviction to action without offering an exit.</p>
+                </div>
+
+                <div class="project-section reveal">
+                    <p class="project-section-label label-lg">THE PROBLEM</p>
+                    <h4 class="project-pullquote mb-3 ps-3">The ad made a promise the product page couldn't keep.</h4>
+                    <p class="project-section-body text-md">Eucerin's Anti Pigment campaign led with bold claim, 75% reduction in dark stops in 12 weeks, endorsed by Rita Pereira. But clicking through landed users on a generic product page catalogue with no narrative continuity, no social proof, and no clear next action. The design challenge wasn't aesthetic. It was strategic: how do you take someone who just saw Rita Pereira's face on Facebook and move them, in a single scroll, from recognition to trust to action? No navigation menu, no links to other products, no exists. Just a logical progression where each section answers the question the previous one raised. </p>
+                    <picture>
+                        <source srcset="./assets/wd-images/survey-results.webp" type="image/webp">
+                        <img src="./assets/wd-images/survey-results.png" class="d-block mx-auto w-100 h-auto mb-2" width="1600" height="788.34">
+                    </picture>
+                    <p class="figure-caption text-rg mb-0">Survey results - top frustrations when consuming online resources</p>
+                </div>
+
+                <div class="project-section reveal">
+                    <p class="project-section-label label-lg">PROCESS</p>
+                    <h4 class="project-pullquote mb-3 ps-3">The product was never the hero.</h4>
+                    <p class="project-section-body text-md">The first version of the hero centered the product line, three bottles on a gradient, a generic headline and a CTA that said “View Products”. It looked clean, but it could have been any Eucerin page. The ad that brought users here featured Rita Pereira's face and a specific promise. Landing on a page that erased both broke the continuity the brief required. The second version replaced the products with Rita, replaced the headline with the ad's own language, and changed the CTA to “Discover my routine”. Then the teacher reviewed it and identified a structural problem: the hero's CTA didn't align with the page's actual conversion goal, a free sample request. The A/B test replaced the hero CTA to “Request free sample”, aligning the first thing the user seems with the only thing the page is trying to achieve.</p>
+                    <div class="project-section reveal d-flex flex-column w-100" data-stage-progress-root>
+                    <!-- Progress Carousel -->
+                        <div class="swiper stage-swiper w-100 rounded-2 overflow-hidden" data-stage-swiper>
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide d-flex justify-content-center h-auto">
+                                    <picture class="d-block">
+                                        <source srcset="./assets/wd-images/eucerin-hero1.webp" type="image/webp">
+                                        <img src="./assets/wd-images/eucerin-hero1.png" class="carousel-image d-block w-auto h-auto mw-100 rounded" width="1600" height="1003" alt="Yohoshiro illustratiom - Mockup">
+                                    </picture>
+                                </div>
+
+                                <div class="swiper-slide d-flex justify-content-center h-auto">
+                                    <picture class="d-block">
+                                        <source srcset="./assets/wd-images/finalhero.webp" type="image/webp">
+                                        <img src="./assets/wd-images/finalhero.png" class="carousel-image d-block w-auto h-auto mw-100 rounded" width="1600" height="1003" alt="Yohoshiro illustratiom - First sketch black and white">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stage-progress mx-auto">
+                            <div class="stage-track position-relative d-flex align-items-center justify-content-between" data-stage-track>
+                                <div class="stage-track-line position-absolute top-50 translate-middle-y"></div>
+                                <div class="stage-track-fill position-absolute top-50 translate-middle-y" data-stage-fill></div>
+                            </div>
+                            <div class="stage-tags position-static d-flex justify-content-between" data-stage-tags></div>
+                        </div>
+                    </div>
+                    <p class="figure-caption text-rg mt-2 mb-0">Version 1 and final version of hero section</p>
+                </div>
+
+                <div class="project-section reveal">
+                    <p class="project-section-label label-lg">FINAL DESIGN</p>
+                    <h4 class="project-pullquote mb-3 ps-3">Find the full prototype <a href="https://www.figma.com/design/NIF64zrHJScTJfmIrRyeGj/Prisma-PT-final" class="link-project">here.</a></h4>
+                    <p class="figure-caption text-rg mb-0">NEED TO PUT VIDEO</p>
+                    <p class="figure-caption text-rg mb-0">Final landing page after A/B testing.</p>
+                </div>
+
+                <div class="project-outcome reveal d-flex flex-column w-100 p-3 rounded-2 gap-3">
+                    <p class="project-section-label label-lg mb-0">OUTCOME</p>
+                    <p class="text-lg mb-0"><em>The page convers all 12 required elements without feeling like a checklist. The A/B test hypothesis: replacing “Discover my routine” with “Request free sample” in the hero would increase CTA click-through and form completion rate, because the user understands immediately what is being offered and what action is expected.</em> </p>
+                </div>
+
+                <div class="project-section reveal">
+                    <p class="project-section-label label-lg">WHAT I WOULD DO NEXT</p>
+                    <p class="text-md mb-0">The free sample mechanism was chosen deliberately. It reduces entry friction by asking for no purchase commitment, which matches where the user is in the funnel when they see a Facebook discovery ad. The target audience (women 25-55, interested in science-backed skincare, responsive to trusted public figures) is familiar with skincare routines but may not know the Anti-Pigment line yet. A free sample gets the product into their hands without asking them to commit. What I would test next is whether the routine section introduces a choice that stalls the same user. For cold traffic with one specific skin concern, a single recommended product might convert better than a full routine. </p>
+                </div>
+
+                <nav class="project-pagination d-flex flex-row justify-content-between" aria-label="Project navigation">
+                    <a href="./prismaPT.html" class="text-decoration-none">
+                        <span class="cta-btn label-lg d-inline-flex align-items-center gap-2 p-0">
+                            <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true" style="transform: scaleX(-1)">
+                                <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.5 4.5H16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg> PREVIOUS
+                        </span>
+                    </a>
+                    <a href="./lsd-connect.html" class="text-decoration-none">
+                        <span class="cta-btn label-lg d-inline-flex align-items-center gap-1 p-0">NEXT
+                            <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
+                                <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.5 4.5H16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+        <script src="./js/projects.js"></script>
+    </body>
+</html>
