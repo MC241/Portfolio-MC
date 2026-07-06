@@ -1,4 +1,6 @@
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"});
 
 // ===== FUNCTION TO UPDATE NAVIGATION BAR =====
 function updateActiveNav(section) {
@@ -14,7 +16,7 @@ function updateActiveNav(section) {
     if (!cue || !cosmos) return;
 
     cue.addEventListener("click", () => {
-        cosmos.scrollIntoView({behavior:"smooth"});
+        gsap.to(window, {duration: 1, scrollTo: cosmos, ease: "power2.inOut"});
     });
 })();
 
@@ -68,6 +70,17 @@ function setNavOffset() {
 calcScrollGeometry();
 setNavOffset();
 
+let resizeTimeout = null;
+window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        calcScrollGeometry();
+        setNavOffset();
+        ScrollTrigger.refresh();
+    }, 150);
+});
+
+/*
 let  resizeRAF = null;
 window.addEventListener("resize", () => {
     if(resizeRAF) cancelAnimationFrame(resizeRAF);
@@ -78,6 +91,7 @@ window.addEventListener("resize", () => {
     });
 
 });
+*/
 
 // ===== GSAP SCROLLTRIGGER (hero pin + TRANSITION) =====
 const heroTimeline = gsap.timeline({
@@ -88,11 +102,8 @@ const heroTimeline = gsap.timeline({
         scrub: 0.5,
         invalidateOnRefresh: true,
         onUpdate(self) {
-            const p = self.progress;
-            // Sliding hero overlay upwards
-            heroOverlay.style.transform = `translateY(${-p * overlayTravel}px)`;
             // Changing header theme (light to dark)
-            if (p > 0.70) {
+            if (self.progress > 0.70) {
                 header.classList.add("dark");
             } else {
                 header.classList.remove("dark");
@@ -192,10 +203,10 @@ document.querySelectorAll(".nav-link").forEach(link => {
         updateActiveNav(section);
 
         if (section === "home"){
-            window.scrollTo({top:0, behavior:"smooth"});
+            gsap.to(window, {duration: 1, scrollTo: 0, ease: "power2.inOut"});
         } else {
             const target = document.getElementById(section);
-            if (target) target.scrollIntoView({ behavior: "smooth" });
+            if (target) gsap.to(window, {duration: 1, scrollTo: target, ease: "power2.inOut"});
         }
 
         const navMenu = document.getElementById("navMenu");
