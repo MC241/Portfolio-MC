@@ -99,8 +99,11 @@ const heroTimeline = gsap.timeline({
         trigger: "#scrollDriver",
         start: "top top",
         end: "bottom top",
-        scrub: 0.5,
+        scrub: true,
         invalidateOnRefresh: true,
+        onLeaveBack: () => {
+            if (heroOverlay) gsap.set(heroOverlay, { y: 0 });
+        },
         onUpdate(self) {
             // Changing header theme (light to dark)
             if (self.progress > 0.70) {
