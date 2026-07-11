@@ -18,20 +18,55 @@
         <link rel="stylesheet" href="./css/project-details.css">
     </head>
 
-    <body class="art-page project-page container p-3 min-vh-100">
-        <div class="d-flex justify-content-end mb-2 mb-md-3">
-            <a href="./index.html#projects">
-                <span class="back-btn label-md d-inline-flex align-items-center gap-2">BACK TO PROJECTS
-                    <span class="back-icon d-flex align-items-center justify-content-center">
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                            <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
-                        </svg>
-                    </span>
-                </span>
-            </a>
-        </div>
+    <body>
+        <!--Nav bar-->
+        <header class="position-fixed w-100 dark" id="mainHeader">
+            <nav class="navbar navbar-expand-md d-flex align-items-center px-3" aria-label="Main Navigation">
+                <button class="navbar-toggler border-0 ms-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Changing navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+                    <ul class="navbar-nav text-nowrap">
+                        <li class="nav-item">
+                            <a class="nav-link label-lg d-flex align-items-center gap-2" href="./index.html?section=home" data-section="home">
+                                <img src="./assets/diamond.svg" class="nav-diamond" alt=""> HOME
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link label-lg active d-flex align-items-center gap-2" href="./index.html?section=projects" data-section="projects">
+                                <img src="./assets/diamond.svg" class="nav-diamond" alt=""> PROJECTS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link label-lg d-flex align-items-center gap-2" href="./index.html?section=about" data-section="about">
+                                <img src="./assets/diamond.svg" class="nav-diamond" alt=""> ABOUT ME
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link label-lg d-flex align-items-center gap-2" href="./index.html?section=contacts" data-section="contacts">
+                                <img src="./assets/diamond.svg" class="nav-diamond" alt=""> CONTACTS
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
-        <main class="project-main">
+        <main class="project-page container px-3 pb-5 min-vh-100">
+            <!--Back button-->
+            <div class="d-flex justify-content-end mb-2 mb-md-3">
+                <a href="./web-projects.html">
+                    <span class="back-btn label-md d-inline-flex align-items-center gap-2">BACK TO PROJECTS
+                        <span class="back-icon d-flex align-items-center justify-content-center">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                                <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </span>
+                </a>
+            </div>
+
             <div class="project-body d-flex flex-column gap-5 mx-auto">
                 <div class="project-hero reveal">
                     <p class="project-number label-lg">PROJECT 3</p>
@@ -137,6 +172,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+        <script src="./js/nav-bar.js"></script>
         <script src="./js/projects.js"></script>
     </body>
 </html>

@@ -69,7 +69,7 @@ function renderTagBullets(index, swiperClassName) {
     const num = index + 1;
     const numPathD = TAG_NUM_D[num];
     const numMarkup = `<path class="stage-tag-num" d ="${TAG_NUM_D[num]}"/>`
-        return `<button class="${swiperClassName} stage-tag opacity-100 m-0" aria-label="Go to stage ${num}"><svg class="stage-tag-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${numMarkup}<path class="stage-tag-outline" d="${TAG_OUTLINE_D}"/></svg></button>`;
+        return `<button class="${swiperClassName} stage-tag opacity-100 m-0" aria-label="Go to slide ${num}"><svg class="stage-tag-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${numMarkup}<path class="stage-tag-outline" d="${TAG_OUTLINE_D}"/></svg></button>`;
 }
 
 //Wires the carousel together 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,60 +86,69 @@
                 <h2 class="cosmos-title text-center">Choose a planet to <em>explore</em></h2>
 
                 <div class="planets-row position-relative d-grid" id="planetsRow">
-                    <a href="./art-projects.html" class="planet-card card-art d-flex flex-column align-items-center text-center text-decoration-none p-2 gap-2 gap-sm-3">
+                    <a href="./art-projects.html" class="planet-card card-art d-flex flex-column align-items-center text-center text-decoration-none p-2 gap-1 gap-sm-3">
                         <img src="./assets/art-planet.svg" class="art-planet d-block" alt="Digital drawing planet">
                         <h3 class="planet-name">Digital Drawing</h3>
                         <p class="planet-sub label-lg mb-1">PAINTING &amp;<br>ILLUSTRATION</p>
-                        <span class="planet-enter label-lg d-flex align-items-center justify-content-center ">ENTER <span aria-hidden="true">&rarr;</span></span>
+                        <span class="planet-enter label-lg d-flex align-items-center justify-content-center p-3 gap-1">ENTER 
+                            <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
+                                <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.5 4.5H16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
                     </a>
                     <a href="./web-projects.html" class="planet-card card-wd d-flex flex-column align-items-center text-center text-decoration-none p-2 gap-2 gap-sm-3">
                         <img src="./assets/wd-planet.svg" class="wd-planet d-block" alt="Web Design planet">
                         <h3 class="planet-name">Web Design</h3>
                         <p class="planet-sub label-lg mb-1">UI/UX &amp;<br>DEVELOPMENT</p>
-                        <span class="planet-enter label-lg d-flex align-items-center justify-content-center">ENTER <span aria-hidden="true">&rarr;</span></span>
+                        <span class="planet-enter label-lg d-flex align-items-center justify-content-center p-3 gap-1">ENTER 
+                            <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
+                                <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.5 4.5H16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
                     </a>
                 </div>
             </div>
         </section>
 
         <section class="about-section d-flex align-items-center justify-content-center w-100 py-5 px-3" id="about">
-        <div class="about-inner">
-            <p class="eyebrow label-lg ">A LITTLE ABOUT</p>
-            <h2 class="about-title">About <em>me</em></h2>
+            <div class="about-inner">
+                <h2 class="about-title">About <em>me</em></h2>
 
-            <div class="about-body">
-                <div class="about-portrait d-flex align-items-center justify-content-center text-center" role="img" aria-label="Placeholder for a portrait or illustrated self-portrait">
-                    <span class="label-sm">PORTRAIT PLACEHOLDER</span>
-                </div>
+                <div class="about-body d-flex flex-column flex-md-row align-items-start gap-md-5">
+                    <div class="about-portrait d-flex align-items-center justify-content-center text-center" role="img" aria-label="Placeholder for a portrait or illustrated self-portrait">
+                        <span class="label-sm">PORTRAIT PLACEHOLDER</span>
+                    </div>
 
-                <div class="about-bio d-flex flex-column">
-                    <p class="about-bio-placeholder text-md">
-                        Add a short introduction here: who you are, what you create,
-                        and what draws you to art and web design. Two or three
-                        sentences is plenty to start with — you can always expand it later.
-                    </p>
+                    <div class="about-bio d-flex flex-column">
+                        <p class="about-bio-placeholder text-md">
+                            Add a short introduction here: who you are, what you create,
+                            and what draws you to art and web design. Two or three
+                            sentences is plenty to start with — you can always expand it later.
+                        </p>
 
-                    <ul class="about-facts d-flex flex-column p-0">
-                        <li class="about-fact d-flex flex-column">
-                            <span class="about-fact-key label-md ">BASED IN</span>
-                            <span class="about-fact-value text-rg">— add city/country —</span>
-                        </li>
-                        <li class="about-fact d-flex flex-column">
-                            <span class="about-fact-key label-md">FOCUS</span>
-                            <span class="about-fact-value text-rg">— add specialisms —</span>
-                        </li>
-                        <li class="about-fact d-flex flex-column">
-                            <span class="about-fact-key label-md">TOOLS</span>
-                            <span class="about-fact-value text-rg">— add software/stack —</span>
-                        </li>
-                    </ul>
+                        <ul class="about-facts d-flex flex-column p-0">
+                            <li class="about-fact d-flex flex-column">
+                                <span class="about-fact-key label-md ">BASED IN</span>
+                                <span class="about-fact-value text-rg">— add city/country —</span>
+                            </li>
+                            <li class="about-fact d-flex flex-column">
+                                <span class="about-fact-key label-md">FOCUS</span>
+                                <span class="about-fact-value text-rg">— add specialisms —</span>
+                            </li>
+                            <li class="about-fact d-flex flex-column">
+                                <span class="about-fact-key label-md">TOOLS</span>
+                                <span class="about-fact-value text-rg">— add software/stack —</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="contacts-section" id="contacts">
-        <h2>Contacts</h2>
-    </section>
+        </section>
+        <section class="contacts-section" id="contacts">
+            <h2>Contacts</h2>
+        </section>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>

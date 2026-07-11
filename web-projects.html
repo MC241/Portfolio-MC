@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,48 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./assets/diamond.svg" type="image/svg+xml">
 </head>
+
 <body>
+    <!-- Nav bar-->
+    <header class="position-fixed w-100 dark" id="mainHeader">
+        <nav class="navbar navbar-expand-md d-flex align-items-center px-3" aria-label="Main Navigation">
+            <button class="navbar-toggler border-0 ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Changing navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+                <ul class="navbar-nav text-nowrap">
+                    <li class="nav-item">
+                        <a class="nav-link label-lg d-flex align-items-center gap-2" href="./index.html?section=home" data-section="home">
+                            <img src="./assets/diamond.svg" class="nav-diamond" alt=""> HOME
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link label-lg active d-flex align-items-center gap-2" href="./index.html?section=projects" data-section="projects">
+                            <img src="./assets/diamond.svg" class="nav-diamond" alt=""> PROJECTS
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link label-lg d-flex align-items-center gap-2" href="./index.html?section=about" data-section="about">
+                            <img src="./assets/diamond.svg" class="nav-diamond" alt=""> ABOUT ME
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link label-lg d-flex align-items-center gap-2" href="./index.html?section=contacts" data-section="contacts">
+                            <img src="./assets/diamond.svg" class="nav-diamond" alt=""> CONTACTS
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
     <section class="view d-flex flex-column">
         <div class="container px-3 px-md-4 py-3 py-md-4">
 
             <!-- Back button -->
             <div class="d-flex justify-content-end mb-2 mb-md-3">
-                <a href="./index.html#projects">
+                <a href="./index.html?section=projects">
                     <span class="back-btn label-md d-inline-flex align-items-center gap-2">BACK TO SPACE
                         <span class="back-icon d-flex align-items-center justify-content-center">
                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
@@ -48,7 +84,7 @@
                             <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">UX RESEARCH</span>
                             <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">MOBILE</span>
                         </div>
-                        <a href="./prismaPT.html" class="cta-btn d-inline-flex align-items-center text-decoration-none gap-1 label-lg p-0">
+                        <a href="./prismaPT.html" class="cta-btn d-inline-flex align-self-start align-items-center text-decoration-none gap-1 label-lg p-0">
                             VIEW PROJECT
                             <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
                                 <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -72,7 +108,7 @@
                             <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">CAMPAIGN</span>
                             <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">BRAND</span>
                         </div>
-                        <a href="./eucerin.html" class="cta-btn d-inline-flex align-items-center text-decoration-none gap-1 label-lg p-0">
+                        <a href="./eucerin.html" class="cta-btn d-inline-flex align-self-start align-items-center text-decoration-none gap-1 label-lg p-0">
                             VIEW PROJECT
                             <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
                                 <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -95,7 +131,7 @@
                             <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">RESPONSIVE</span>
                             <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">COURSEWORK</span>
                         </div>
-                        <a href="./five-styles.html" class="cta-btn d-inline-flex align-items-center text-decoration-none gap-1 label-lg p-0">
+                        <a href="./lsd-connect.html" class="cta-btn d-inline-flex align-self-start align-items-center text-decoration-none gap-1 label-lg p-0">
                             VIEW PROJECT
                             <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
                                 <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -108,5 +144,6 @@
         </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/nav-bar.js"></script>
 </body>
 </html>

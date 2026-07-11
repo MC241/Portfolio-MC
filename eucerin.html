@@ -18,20 +18,55 @@
         <link rel="stylesheet" href="./css/project-details.css">
     </head>
 
-    <body class="art-page project-page container p-3 min-vh-100">
-        <div class="d-flex justify-content-end mb-2 mb-md-3">
-            <a href="./index.html#projects">
-                <span class="back-btn label-md d-inline-flex align-items-center gap-2">BACK TO PROJECTS
-                    <span class="back-icon d-flex align-items-center justify-content-center">
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                            <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
-                        </svg>
-                    </span>
-                </span>
-            </a>
-        </div>
+    <body>
+        <!--Nav bar-->
+        <header class="position-fixed w-100 dark" id="mainHeader">
+            <nav class="navbar navbar-expand-md d-flex align-items-center px-3" aria-label="Main Navigation">
+                <button class="navbar-toggler border-0 ms-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Changing navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+                    <ul class="navbar-nav text-nowrap">
+                        <li class="nav-item">
+                            <a class="nav-link label-lg d-flex align-items-center gap-2" href="./index.html?section=home" data-section="home">
+                                <img src="./assets/diamond.svg" class="nav-diamond" alt=""> HOME
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link label-lg active d-flex align-items-center gap-2" href="./index.html?section=projects" data-section="projects">
+                                <img src="./assets/diamond.svg" class="nav-diamond" alt=""> PROJECTS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link label-lg d-flex align-items-center gap-2" href="./index.html?section=about" data-section="about">
+                                <img src="./assets/diamond.svg" class="nav-diamond" alt=""> ABOUT ME
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link label-lg d-flex align-items-center gap-2" href="./index.html?section=contacts" data-section="contacts">
+                                <img src="./assets/diamond.svg" class="nav-diamond" alt=""> CONTACTS
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
-        <main class="project-main">
+        <main class="project-page container px-3 pb-5 min-vh-100">
+            <!--Back Button-->
+            <div class="d-flex justify-content-end mb-2 mb-md-3">
+                <a href="./web-projects.html">
+                    <span class="back-btn label-md d-inline-flex align-items-center gap-2">BACK TO PROJECTS
+                        <span class="back-icon d-flex align-items-center justify-content-center">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                                <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </span>
+                </a>
+            </div>
+            
             <div class="project-body d-flex flex-column gap-5 mx-auto">
                 <div class="project-hero reveal">
                     <p class="project-number label-lg">PROJECT 2</p>
@@ -74,11 +109,16 @@
                     <p class="project-section-label label-lg">THE PROBLEM</p>
                     <h4 class="project-pullquote mb-3 ps-3">The ad made a promise the product page couldn't keep.</h4>
                     <p class="project-section-body text-md">Eucerin's Anti Pigment campaign led with bold claim, 75% reduction in dark stops in 12 weeks, endorsed by Rita Pereira. But clicking through landed users on a generic product page catalogue with no narrative continuity, no social proof, and no clear next action. The design challenge wasn't aesthetic. It was strategic: how do you take someone who just saw Rita Pereira's face on Facebook and move them, in a single scroll, from recognition to trust to action? No navigation menu, no links to other products, no exists. Just a logical progression where each section answers the question the previous one raised. </p>
-                    <picture>
-                        <source srcset="./assets/wd-images/survey-results.webp" type="image/webp">
-                        <img src="./assets/wd-images/survey-results.png" class="d-block mx-auto w-100 h-auto mb-2" width="1600" height="788.34">
-                    </picture>
-                    <p class="figure-caption text-rg mb-0">Survey results - top frustrations when consuming online resources</p>
+                    <video
+                        class="mockup-video d-block h-100 w-100 object-fit-cover mb-2"
+                        autoplay
+                        muted
+                        loop
+                        playinline
+                        preload="metadata">
+                        <source src="./assets/wd-images/Mockup-videos/eucerin-hp.webm" type="video/webm; codecs=vp9">
+                    </video>
+                    <p class="figure-caption text-rg mb-0">Current Eucerin Anti-Pigment campain landing page</p>
                 </div>
 
                 <div class="project-section reveal">
@@ -93,14 +133,22 @@
                                 <div class="swiper-slide d-flex justify-content-center h-auto">
                                     <picture class="d-block">
                                         <source srcset="./assets/wd-images/eucerin-hero1.webp" type="image/webp">
-                                        <img src="./assets/wd-images/eucerin-hero1.png" class="carousel-image d-block w-auto h-auto mw-100 rounded" width="1600" height="1003" alt="Yohoshiro illustratiom - Mockup">
+                                        <img src="./assets/wd-images/eucerin-hero1.png" 
+                                            class="carousel-image d-block w-auto h-auto mw-100 rounded" 
+                                            width="1600" 
+                                            height="1003" 
+                                            alt="Reference moodboard for Yohoshiro - a photo of a couple at a cafe table collaged with the hand-lettered wordmark and the korean hotdogs sketched on top.">
                                     </picture>
                                 </div>
 
                                 <div class="swiper-slide d-flex justify-content-center h-auto">
                                     <picture class="d-block">
                                         <source srcset="./assets/wd-images/finalhero.webp" type="image/webp">
-                                        <img src="./assets/wd-images/finalhero.png" class="carousel-image d-block w-auto h-auto mw-100 rounded" width="1600" height="1003" alt="Yohoshiro illustratiom - First sketch black and white">
+                                        <img src="./assets/wd-images/finalhero.png" 
+                                            class="carousel-image d-block w-auto h-auto mw-100 rounded" 
+                                            width="1600" 
+                                            height="1003" 
+                                            alt="Yohoshiro illustratiom - First sketch black and white">
                                     </picture>
                                 </div>
                             </div>
@@ -119,7 +167,15 @@
                 <div class="project-section reveal">
                     <p class="project-section-label label-lg">FINAL DESIGN</p>
                     <h4 class="project-pullquote mb-3 ps-3">Find the full prototype <a href="https://www.figma.com/design/NIF64zrHJScTJfmIrRyeGj/Prisma-PT-final" class="link-project">here.</a></h4>
-                    <p class="figure-caption text-rg mb-0">NEED TO PUT VIDEO</p>
+                    <video
+                        class="mockup-video d-block h-100 w-100 object-fit-cover mb-2"
+                        autoplay
+                        muted
+                        loop
+                        playinline
+                        preload="metadata">
+                        <source src="./assets/wd-images/Mockup-videos/eucerin-mockup.webm" type="video/webm; codecs=vp9">
+                    </video>
                     <p class="figure-caption text-rg mb-0">Final landing page after A/B testing.</p>
                 </div>
 
@@ -157,6 +213,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+        <script src ="./js/nav-bar.js"></script>
         <script src="./js/projects.js"></script>
+        
     </body>
 </html>

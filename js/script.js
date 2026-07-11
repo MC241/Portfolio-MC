@@ -70,28 +70,15 @@ function setNavOffset() {
 calcScrollGeometry();
 setNavOffset();
 
-let resizeTimeout = null;
+let resizeRAF = null;
 window.addEventListener("resize", () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        calcScrollGeometry();
-        setNavOffset();
-        ScrollTrigger.refresh();
-    }, 150);
-});
-
-/*
-let  resizeRAF = null;
-window.addEventListener("resize", () => {
-    if(resizeRAF) cancelAnimationFrame(resizeRAF);
-    resizeRAF = requestAnimationFrame(() =>{
+    if (resizeRAF) cancelAnimationFrame(resizeRAF);
+    resizeRAF = requestAnimationFrame(() => {
         calcScrollGeometry();
         setNavOffset();
         ScrollTrigger.refresh();
     });
-
 });
-*/
 
 // ===== GSAP SCROLLTRIGGER (hero pin + TRANSITION) =====
 const heroTimeline = gsap.timeline({
@@ -151,6 +138,25 @@ gsap.from(".planet-card", {
     }
 });
 
+// GO TO A SECTION FUCNTION
+function goToSection(section){
+    isScrollingFromClick = true;
+    clearTimeout(scrollTimeout);
+    updateActiveNav(section);
+
+    if(section === "home"){
+    gsap.to(window, {duration: 0.5, scrollTo:0, ease:"power2.out"});
+
+    }else{
+        const target = document.getElementById(section);
+        if (target) gsap.to(window, {duration: 0.5, scrollTo: target, ease:"power2.out"});
+    }
+
+    scrollTimeout = setTimeout(() => {
+        isScrollingFromClick = false;
+    }, 800);
+
+}
 
 
 // NAVIGATION THROUGH SCROLL
@@ -196,29 +202,11 @@ document.querySelectorAll(".nav-link").forEach(link => {
     link.addEventListener("click", function(e) {
         e.preventDefault();
         //Reading which section was clicked
-        const section = this.dataset.section;
-
-        //Lock active state so scroll listener doesn't interfere
-        isScrollingFromClick = true;
-        //Cancel previous unlock timer that might still be running
-        clearTimeout(scrollTimeout);
-        //highlight clicked link right away
-        updateActiveNav(section);
-
-        if (section === "home"){
-            gsap.to(window, {duration: 1, scrollTo: 0, ease: "power2.inOut"});
-        } else {
-            const target = document.getElementById(section);
-            if (target) gsap.to(window, {duration: 1, scrollTo: target, ease: "power2.inOut"});
-        }
+        goToSection(this.dataset.section);
 
         const navMenu = document.getElementById("navMenu");
         const bsCollapse = bootstrap.Collapse.getInstance(navMenu);
         if (bsCollapse) bsCollapse.hide();
-        //After the smooth scroll happens, unlock the scroll listener again so it can resume updating the active link as the user scrolls
-        scrollTimeout = setTimeout (() => {
-            isScrollingFromClick = false;
-        }, 800);
     });
 });
 
@@ -240,4 +228,13 @@ window.addEventListener("scroll", () => {
 //Recalculates scroll position once images/fonts are fully loaded
 window.addEventListener("load", () => {
     ScrollTrigger.refresh();
+
+    const params = new URLSearchParams(window.location.search);
+    const section = params.get("section");
+    if (section) {
+        requestAnimationFrame(() => {
+            goToSection(section);
+            history.replaceState(null, "", "./index.html");
+        });
+    }
 });

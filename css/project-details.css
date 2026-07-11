@@ -1,6 +1,10 @@
 /*===========================================================================================
                         PROJECT DETAIL PAGE - Shared by all 6 case-study pages
 ============================================================================================*/
+.project-page{
+    padding-top: calc(var(--nav-h) + 16px);
+}
+
 .project-body{
     max-width: min(100%, 85vh);
     color: var(--lavender);

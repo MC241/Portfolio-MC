@@ -39,7 +39,7 @@
     
     /*--- MOTION ---*/
     --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
-    --duration-fast:0.3s;
+    --duration-fast: 0.3s;
     --duration-standard: 0.4s;
 
     /*--- LAYOUT ---*/
@@ -335,7 +335,7 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 }
 
 @keyframes scrollBounce {
-    0%, 100% { transform: scaleY(1); opacity: 1; }
+    0%, 100% { transform: scaleY(0.9); opacity: 1; }
     50% { transform: scaleY(0.4); opacity: 0.4; }
 }
 
@@ -398,10 +398,6 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
     row-gap: 64px;
 }
 
-.planet-card{
-    gap: 1rem;
-}
-
 .card-art{
     justify-self: start;
 }
@@ -431,6 +427,7 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
                                         PROJECTS SECTION
 ============================================================================================*/
 .view{
+    padding-top: calc(var(--nav-h));
     min-height: 100vh;
 }
 
@@ -487,10 +484,10 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 @media (hover: hover) {
     span.planet-enter:hover:not(:active),
     .cta-btn:hover:not(:active) {
-        background-image: radial-gradient(ellipse 100% 150% at 50% 50%, rgba(182, 165, 120, 0.25) 0%, transparent 75%);
+        background-image: radial-gradient(ellipse 65% 150% at 50% 50%, rgba(182, 165, 120, 0.25) 0%, transparent 75%);
     }
     .back-btn:hover:not(:active){
-        background-image: radial-gradient(ellipse 100% 150% at 50% 50%, rgba(162, 160, 153, 0.25) 0%, transparent 75%);
+        background-image: radial-gradient(ellipse 65% 150% at 50% 50%, rgba(162, 160, 153, 0.20) 0%, transparent 75%);
     }
 
     /* ACTIVE — the moment of click/tap */
@@ -515,13 +512,11 @@ span.planet-enter:focus-visible,
 .cta-btn:focus-visible {
     color: var(--gold-bright);
     outline: 1px solid var(--gold);
-    outline-offset: 4px;
 }
 
 .back-btn:focus-visible{
     color: var(--lavender-dim);
-    outline: 1px solid var(--lavender-dim);
-    outline-offset: 4px;
+    outline: 1px solid var(--lavender);
 }
 
 /* DISABLED — links don't have a native disabled, so use a class */
