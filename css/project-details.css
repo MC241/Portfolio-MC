@@ -66,7 +66,7 @@
 .stage-track{
     height: 40px;
 }
-/*Left and right 20 px padding to match the center of the first and last star in the stage-track*/
+/*Left and right 22 px padding to match the center of the first and last star in the stage-track*/
 .stage-track-line{
     left: 22px;
     right: 22px;
@@ -128,11 +128,11 @@
 }
 
 .stage-tag-icon .stage-tag-outline{
-    stroke: CurrentColor;
+    stroke: currentColor;
 }
 
 .stage-tag-icon .stage-tag-num{
-    fill: CurrentColor;
+    fill: currentColor;
 }
 
 .stage-tag:hover{

@@ -52,9 +52,9 @@
         </header>
 
         <main class="project-page container px-3 pb-5 min-vh-100">
-            <div class="d-flex justify-content-end mb-3">
+            <div class="d-flex justify-content-end mb-2 mb-md-3">
                 <a href="./art-projects.html">
-                    <span class="back-btn label-md d-inline-flex align-items-center gap-2">BACK TO PROJECTS
+                    <span class="back-btn label-md d-inline-flex align-items-center gap-2 p-2">BACK TO PROJECTS
                         <span class="back-icon d-flex align-items-center justify-content-center">
                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                                 <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
@@ -63,13 +63,13 @@
                     </span>
                 </a>
             </div>
-            <div class="project-body d-flex flex-column w-100 gap-5 mx-auto">
+            <div class="project-body d-flex flex-column gap-5 mx-auto">
                 <div class="project-hero reveal">
                     <p class="project-number label-lg">PROJECT 3</p>
                     <picture>
                         <source srcset="./assets/art-images/5-styles/line.webp" type="image/webp">
                         <img src="./assets/art-images/5-styles/line.png" 
-                            class="project-hero-image d-block w-auto h-auto mx-auto rounded mb-4" 
+                            class="project-hero-image d-block h-auto mx-auto rounded mb-4" 
                             width="1600" 
                             height="1600" 
                             alt="High-contrast graphic portrait of a woman's face profile, her hair and her top are solid black. Her visible eye, brow, and lips are picked out in red against a bare crimson background. There is a white outline of a wolf's skull on her head.">
@@ -104,7 +104,7 @@
                             <picture>
                                 <source srcset="./assets/art-images/5-styles/ref.webp" type="image/webp">
                                 <img src="./assets/art-images/5-styles/ref.png" 
-                                    class="d-block article-img mx-auto w-100 h-auto rounded" 
+                                    class="d-block w-100 h-auto rounded" 
                                     width="1600" 
                                     height="1600" 
                                     alt="Side profile of a girl with black hair and a black top. She is wearing hot pink eyeshadow and lipstick. She has a purple outline of a wolf's skull on her head. The background is grey.">
@@ -114,7 +114,11 @@
                         <figure class="d-flex flex-column gap-2 mb-0">
                             <picture>
                                 <source srcset="./assets/art-images/5-styles/refsketch.webp" type="image/webp">
-                                <img src="./assets/art-images/5-styles/refsketch.png" class="d-block instagram-post mx-auto w-100 h-auto rounded" width="1600" height="1600" alt="The girl's outilne is drawn in dark blue and the skull's outline is lilac. The background is the same shade of grey as the reference photo.">
+                                <img src="./assets/art-images/5-styles/refsketch.png" 
+                                    class="d-block w-100 h-auto rounded" 
+                                    width="1600" 
+                                    height="1600" 
+                                    alt="The girl's outilne is drawn in dark blue and the skull's outline is lilac. The background is the same shade of grey as the reference photo.">
                             </picture>
                             <figcaption class="figure-caption text-rg mb-0">Base sketch for all illustrations.</figcaption>
                         </figure>
@@ -122,61 +126,61 @@
                 </div>
 
                 <!-- data-stage-progress-root: custom data attribute: used in Javascript to make stage-progress bar-->
-                <div class="project-section reveal d-flex flex-column w-100" data-stage-progress-root data-stage-fill="false">
+                <div class="project-section reveal d-flex flex-column" data-stage-progress-root data-stage-fill="false">
                     <p class="project-section-label text-left label-lg">FINAL ILLUSTRATIONS</p>
                     <!-- Progress Carousel -->
-                    <div class="swiper stage-swiper w-100 overflow-hidden" data-stage-swiper>
+                    <div class="swiper stage-swiper w-100 overflow-hidden rounded" data-stage-swiper>
                         <div class="swiper-wrapper">
 
-                            <div class="swiper-slide d-flex justify-content-center h-auto">
-                                <picture class="d-block">
+                            <div class="swiper-slide d-flex justify-content-center">
+                                <picture>
                                     <source srcset="./assets/art-images/5-styles/geometric.webp" type="image/webp">
                                     <img src="./assets/art-images/5-styles/geometric.png" 
-                                        class="carousel-image d-block w-auto h-auto mw-100 rounded" 
+                                        class="carousel-image h-auto mw-100" 
                                         width="1600" 
                                         height="1600" 
                                         alt="Geometric style - a woman's profile in the dark maroon and violet, her features built from angular, faceted line segments over a flat charcoal background.">
                                 </picture>
                             </div>
 
-                            <div class="swiper-slide d-flex justify-content-center h-auto">
-                                <picture class="d-block">
+                            <div class="swiper-slide d-flex justify-content-center">
+                                <picture>
                                     <source srcset="./assets/art-images/5-styles/line.webp" type="image/webp">
                                     <img src="./assets/art-images/5-styles/line.png" 
-                                        class="carousel-image d-block w-auto h-auto mw-100 rounded" 
+                                        class="carousel-image h-auto mw-100" 
                                         width="1600" 
                                         height="1600" 
                                         alt="Lines and blobs style - a woman's silhouette in solid black and white contour outlines and red facial details, against a crimson background.">
                                 </picture>
                             </div>
 
-                            <div class="swiper-slide d-flex justify-content-center h-auto">
-                                <picture class="d-block">
+                            <div class="swiper-slide d-flex justify-content-center">
+                                <picture>
                                     <source srcset="./assets/art-images/5-styles/blackwhite.webp" type="image/webp">
                                     <img src="./assets/art-images/5-styles/blackwhite.png" 
-                                        class="carousel-image d-block w-auto h-auto mw-100 rounded" 
+                                        class="carousel-image h-auto mw-100" 
                                         width="1600" 
                                         height="1600" 
                                         alt="Back and white style - a densely hatched ink portrait of a woman's profile surrounded by scattered white dots on a black background.">
                                 </picture>
                             </div>
 
-                            <div class="swiper-slide d-flex justify-content-center h-auto">
-                                <picture class="d-block">
+                            <div class="swiper-slide d-flex justify-content-center">
+                                <picture>
                                     <source srcset="./assets/art-images/5-styles/sihouette.webp" type="image/webp">
                                     <img src="./assets/art-images/5-styles/sihouette.png" 
-                                        class="carousel-image d-block w-auto h-auto mw-100 rounded" 
+                                        class="carousel-image h-auto mw-100" 
                                         width="1600" 
                                         height="1600" 
                                         alt="Silhouette style - a monochrome figure whose head is rendered as an animal skull layered over a shadowed profile, on a pink gradient background.">
                                 </picture>
                             </div>
 
-                            <div class="swiper-slide d-flex justify-content-center h-auto">
-                                <picture class="d-block">
+                            <div class="swiper-slide d-flex justify-content-center">
+                                <picture>
                                     <source srcset="./assets/art-images/5-styles/childish.webp" type="image/webp">
                                     <img src="./assets/art-images/5-styles/childish.png" 
-                                        class="carousel-image d-block w-auto h-auto mw-100 rounded" 
+                                        class="carousel-image h-auto mw-100" 
                                         width="1600" 
                                         height="1600" 
                                         alt="Childish style - a round-cared girl with big green eyes and magenta hair, wearing a yellow hoodie shapped like an animal muzzle, on a pastel blue background.">
@@ -194,7 +198,7 @@
                     </div>
                 </div>
 
-                <nav class="project-pagination d-flex flex-row justify-content-between" aria-label="Project navigation">
+                <nav class="project-pagination d-flex justify-content-between" aria-label="Project navigation">
                     <a href="./bouganvilleas.html" class="text-decoration-none">
                         <span class="cta-btn label-lg d-inline-flex align-items-center gap-2 p-2">
                             <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true" style="transform: scaleX(-1)">

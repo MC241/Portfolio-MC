@@ -30,12 +30,10 @@
     --purple-glow:  #8576c4;   /* brighter purple, glows */ 
 
     /*--- Z INDEX SCALE --- */
-    --z-base: 0;
     --z-content: 1;
     --z-decorative: 5;
-    --z-planet: 10;
+    --z-hero-overlay: 50;
     --z-nav: 100;
-    --z-nav-overlay: 110;
     
     /*--- MOTION ---*/
     --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
@@ -43,12 +41,7 @@
     --duration-standard: 0.4s;
 
     /*--- LAYOUT ---*/
-    --content-max-width: 343px;
     --nav-h: 60px;
-
-    /*--- BREAKPOINTS ---*/
-    --bd-mobile-max: 639.98px;
-    --bp-destop-min: 1024px;
 }
 
 
@@ -179,10 +172,6 @@ p, .text-md {
     box-sizing: border-box;
 }
 
-html, body {
-    overflow-x: hidden;
-}
-
 body {
     font-family: var(--sans);
     background-image: radial-gradient(ellipse at 50% 80%, var(--cosmos-3) 0%, var(--cosmos-2) 45%, var(--cosmos) 75%);
@@ -193,10 +182,7 @@ body {
 ============================================================================================*/
 
 header{
-    top: 0;
-    left: 0;
     z-index: var(--z-nav);
-    justify-content: flex-end;
     background: var(--white);
     transition: background 0.6s ease, color 0.6s ease;
 }
@@ -250,44 +236,24 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
                                         SCROLL ENGINE
 ============================================================================================*/
 .scroll-driver {
-    height: 100vh;
     z-index: var(--z-content);
 }
 
 .hero-overlay {
-    top: 0;
-    left: 0;
-    width: 100%;
     height: calc(100dvh + 30vw);
     z-index: var(--z-hero-overlay);
     will-change: transform;
 }
 
 .hero-solid {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
     background: var(--white);
-    z-index: var(--z-base);
-}
-
-.hero-content{
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: var(--z-content);
 }
 
 .drip-edge {
     top: calc(100vh - 2px);
-    left: 0;
-    width: 100%;
     height: 30vw;
     min-height: 120px;
     max-height: 280px;
-    z-index: var(--z-base);
 }
 /*===========================================================================================
                                         HOME SECTION
@@ -321,9 +287,6 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
     min-height:44px;
     bottom: calc(30vw + 3rem);
     color: var(--ink);
-    z-index: var(--z-content);
-    background: none;
-    border: none;
     cursor: pointer;
 }
 
@@ -342,21 +305,7 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 /*===========================================================================================
                                         COSMOS SECTION
 ============================================================================================*/
-.cosmos-section {
-    width: 100%;
-    min-height: 100vh;
-    overflow:hidden;
-}
-
 /* Stars */
-.stars-layer {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: var(--z-base);
-    pointer-events: none;
-}
 
 .star-particle {
     position: absolute;
@@ -375,16 +324,13 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 
 /* Cosmos content */
 .cosmos-content {
-    width: 100%;
     max-width: 600px;
-    margin: 0 auto;
     padding: calc(var(--nav-h) + 48px) 16px 48px;
     z-index: var(--z-decorative);
 }
 
 .cosmos-title {
     color: var(--white);
-    margin-bottom: 64px;
 }
 
 .cosmos-title em {
@@ -395,7 +341,6 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 .planets-row {
     z-index: var(--z-idecorative);
     grid-template-columns: 1fr;
-    row-gap: 64px;
 }
 
 .card-art{
@@ -418,7 +363,6 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 .planet-enter {
     min-width: 44px;
     min-height: 44px;
-    overflow: hidden;
     color: var(--gold);
     transition: color 0.3s ease, opacity 0.3s ease;
 }
@@ -520,7 +464,7 @@ span.planet-enter:focus-visible,
 }
 
 /* DISABLED — links don't have a native disabled, so use a class */
-span.planet-enter.disabled
+span.planet-enter.disabled,
 .cta-btn.disabled {
     color: var(--ink-soft);
     opacity: 0.4;
@@ -541,7 +485,6 @@ span.planet-enter.disabled
 }
 
 .about-inner{
-    width: 100%;
     max-width: 900px;
 }
 
@@ -556,13 +499,10 @@ span.planet-enter.disabled
 }
 
 .about-title em {
-    font-style: italic;
-    color: var(--color-text-on-dark);
+    color: var(--lavender);
 }
 
 .about-body {
-    display: flex;
-    flex-direction: column;
     gap: 32px;
 }
 
@@ -570,15 +510,9 @@ span.planet-enter.disabled
     width: 100%;
     aspect-ratio: 4 / 5;
     max-width: 280px;
-    margin: 0 auto;
-    border-radius: 6px;
     border: 1px dashed;
     background: var(--cosmos-3);
     color: var(--ink-soft);
-}
-
-.about-bio {
-    gap: 24px;
 }
 
 .about-bio-placeholder {
@@ -586,12 +520,10 @@ span.planet-enter.disabled
 }
 
 .about-facts {
-    list-style: none;
     gap: 12px;
 }
 
 .about-fact {
-    gap: 4px;
     padding-bottom: 12px;
     border-bottom: 0.5px solid;
     opacity: 0.7;
@@ -603,27 +535,11 @@ span.planet-enter.disabled
 
 .about-fact-value {
     color: var(--lavender-dim);
-    font-style: italic;
 }
 
 /*===========================================================================================
                                         RESPONSIVENESS
 ============================================================================================*/
-@media(max-width: 567px){
-
-    .cosmos-title{
-        margin-bottom:24px;
-    }
-
-    .planets-row{
-        row-gap: 24px;
-    }
-
-    .planet-card{
-        gap: 8px;
-    }
-}
-
 @media(min-width: 600px){
 
     .cosmos-title{
@@ -661,8 +577,6 @@ span.planet-enter.disabled
     }
 
     .about-body {
-        flex-direction: row;
-        align-items: flex-start;
         gap: 64px;
     }
 
