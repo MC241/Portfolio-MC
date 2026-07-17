@@ -138,6 +138,18 @@ gsap.from(".planet-card", {
     }
 });
 
+gsap.from(".about-title", {
+    opacity: 0,
+    scale: 0.85,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#about",
+        start: "top 50%",
+        end: "top top",
+        scrub: 1,
+    }
+});
+
 // GO TO A SECTION FUCNTION
 function goToSection(section){
     isScrollingFromClick = true;

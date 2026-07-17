@@ -508,7 +508,6 @@ span.planet-enter.disabled,
 
 .about-portrait {
     width: 100%;
-    aspect-ratio: 4 / 5;
     max-width: 280px;
     border: 1px dashed;
     background: var(--cosmos-3);
