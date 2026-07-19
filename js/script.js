@@ -53,10 +53,9 @@ function calcScrollGeometry(){
     if(!heroOverlay || !scrollDriver) return;
 
     const overlayHeight = heroOverlay.offsetHeight;
-
     overlayTravel = Math.max(overlayHeight, window.innerHeight);
-
     scrollDriver.style.height = overlayTravel + "px";
+
 }
 
 // ===== DEFINING NAVBAR HEIGHT =====
@@ -76,7 +75,9 @@ window.addEventListener("resize", () => {
     resizeRAF = requestAnimationFrame(() => {
         calcScrollGeometry();
         setNavOffset();
-        ScrollTrigger.refresh();
+        ScrollTrigger.refresh(true);
+
+        heroTimeline.scrollTrigger.update();
     });
 });
 
@@ -107,12 +108,6 @@ heroTimeline.to(heroOverlay,{
     ease:"none",
 }, 0);
 
-// Animation of hero content sliding up and dissapearing
-heroTimeline.to(".hero-content, .scroll-indicator", {
-    yPercent: -20,
-    opacity: 0,
-    ease: "none"
-}, 0);
 
 // ===== ENTRANCE ANIMATIONS =====
 gsap.from(".cosmos-title", {

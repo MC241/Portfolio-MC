@@ -191,7 +191,6 @@ header{
     min-width: 44px;
     min-height: 44px;
     color: var(--ink-soft);
-    justify-content: flex-end;
     transition: color var(--duration-standard) var(--ease-standard);
 }
 
@@ -236,31 +235,32 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
                                         SCROLL ENGINE
 ============================================================================================*/
 .scroll-driver {
+    height: 100vh;
     z-index: var(--z-content);
 }
 
 .hero-overlay {
-    height: calc(100dvh + 30vw);
+    height: calc(100dvh + min(30vw, 280px));
     z-index: var(--z-hero-overlay);
     will-change: transform;
 }
 
-.hero-solid {
+.hero-content{
+    height: 100dvh;
     background: var(--white);
 }
-
 .drip-edge {
-    top: calc(100vh - 2px);
     height: 30vw;
     min-height: 120px;
     max-height: 280px;
+    margin-top: -2px;
 }
 /*===========================================================================================
                                         HOME SECTION
 ============================================================================================*/
 
 .hero-title {
-    color:var(--ink);
+    color: var(--ink);
 }
 .hero-title em {
     color: var(--purple);
@@ -269,8 +269,7 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
     color: var(--ink-soft);
 }
 
-.banner-line {
-    flex: 1;                    
+.banner-line {                  
     height: 2px;
     background-color: var(--gold-dim);
     opacity: 0.6;
@@ -285,7 +284,7 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 .scroll-indicator {
     min-width: 44px;
     min-height:44px;
-    bottom: calc(30vw + 3rem);
+    bottom: calc(min(30vw, 280px) + 3rem);
     color: var(--ink);
     cursor: pointer;
 }
@@ -322,10 +321,12 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
     50% { opacity: var(--max-opacity); }
 }
 
+.cosmos-section{
+    padding-top: 30vh;
+}
 /* Cosmos content */
 .cosmos-content {
     max-width: 600px;
-    padding: calc(var(--nav-h) + 48px) 16px 48px;
     z-index: var(--z-decorative);
 }
 
@@ -339,7 +340,7 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 
 /* ===== PLANETS ===== */
 .planets-row {
-    z-index: var(--z-idecorative);
+    z-index: var(--z-decorative);
     grid-template-columns: 1fr;
 }
 
@@ -507,7 +508,6 @@ span.planet-enter.disabled,
 }
 
 .about-portrait {
-    width: 100%;
     max-width: 280px;
     border: 1px dashed;
     background: var(--cosmos-3);
@@ -556,7 +556,6 @@ span.planet-enter.disabled,
 
     .card-wd{
         grid-column: 2;
-        margin-top: 48px;
     }
 
 }
@@ -577,12 +576,6 @@ span.planet-enter.disabled,
 
     .about-body {
         gap: 64px;
-    }
-
-    .about-portrait {
-        flex-shrink: 0;
-        width: 280px;
-        margin: 0;
     }
 
     .about-bio {
