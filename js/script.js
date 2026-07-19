@@ -1,5 +1,6 @@
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+//Disable auto-refresh on resize - the custom resize handler below
 ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"});
 
 // ===== FUNCTION TO UPDATE NAVIGATION BAR =====
@@ -75,9 +76,9 @@ window.addEventListener("resize", () => {
     resizeRAF = requestAnimationFrame(() => {
         calcScrollGeometry();
         setNavOffset();
+        heroTimeline.invalidate();
         ScrollTrigger.refresh(true);
-
-        heroTimeline.scrollTrigger.update();
+        ScrollTrigger.update();
     });
 });
 
@@ -234,7 +235,9 @@ window.addEventListener("scroll", () => {
 // ===== UPDATING SCROLL TRIGGER AFTER LOADING =====
 //Recalculates scroll position once images/fonts are fully loaded
 window.addEventListener("load", () => {
-    ScrollTrigger.refresh();
+    calcScrollGeometry();
+    heroTimeline.invalidate();
+    ScrollTrigger.refresh(true);
 
     const params = new URLSearchParams(window.location.search);
     const section = params.get("section");

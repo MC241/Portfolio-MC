@@ -1,5 +1,5 @@
 /*===========================================================================================
-                                    DESING SYSTEM
+                                    DESIGN SYSTEM
 ============================================================================================*/
 :root{
     /*--- FONTS ---*/
@@ -240,13 +240,13 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 }
 
 .hero-overlay {
-    height: calc(100dvh + min(30vw, 280px));
+    height: calc(100vh + min(30vw, 280px));
     z-index: var(--z-hero-overlay);
     will-change: transform;
-}
+} 
 
 .hero-content{
-    height: 100dvh;
+    height: 100vh;
     background: var(--white);
 }
 .drip-edge {
@@ -283,7 +283,7 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 /* Scroll indicator */
 .scroll-indicator {
     min-width: 44px;
-    min-height:44px;
+    min-height: 44px;
     bottom: calc(min(30vw, 280px) + 3rem);
     color: var(--ink);
     cursor: pointer;
@@ -487,11 +487,6 @@ span.planet-enter.disabled,
 
 .about-inner{
     max-width: 900px;
-}
-
-.about-section .eyebrow{
-    color: var(--lavender);
-    margin-bottom: 12px;
 }
 
 .about-title{
