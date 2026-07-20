@@ -3,6 +3,143 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 //Disable auto-refresh on resize - the custom resize handler below
 ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"});
 
+
+// ===== SPLASH SCREEN =====
+(function initSplash(){
+    const splash = document.getElementById("splash");
+    const splashStar = document.getElementById("splashStar");
+    const splashHint = document.getElementById("splashHint");
+
+    if (!splash || !splashStar || !heroStar) return;
+
+    // If user refreshs, show splash animation
+    const navType = performance.getEntriesByType("navigation")[0]?.type;
+    if(navType == "reload"){
+        sessionStorage.removeItem("splashShown");
+    }
+
+    //Skip splash if already shown in that session
+    if(sessionStorage.getItem("splashShown")) {
+        splash.remove();
+        return;
+    }
+
+    //Adding class .splash-active to body and html elements
+    document.documentElement.classList.add("splash-active");
+    document.body.classList.add("splash-active");
+
+    const preventScroll = (e) => {e.preventDefault(); };
+    window.addEventListener("wheel", preventScroll, {passive:false});
+    window.addEventListener("touchmove", preventScroll, {passive:false});
+
+    ScrollTrigger.getAll().forEach(t => t.disable());
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let pulse = null;
+    let intro = null;
+    let dismissed = false;
+
+    //Phase 1: star is born, hint fades in, star pulses
+    if (reduceMotion) {
+        gsap.set([splashStar, splashHint], {opacity:1});
+    }else{
+        intro = gsap.timeline();
+
+        intro.from(splashStar, {
+            opacity: 0,
+            scale: 0.3,
+            rotate: -15,
+            duration: 1.5,
+            ease: "power2.out"
+        });
+
+        intro.from(splashHint, {
+            opacity: 0,
+            duration: 0.8,
+            ease: "power1.out"
+        }, "-=0.4"); 
+
+        intro.call(() => {
+            pulse = gsap.to(splashStar, {
+                scale: 1.5,
+                opacity: 0.65,
+                duration: 3,
+                ease: "sine.inOut",
+                yoyo: true,
+                repeat: -1
+            });
+        });
+    }
+
+    function dismiss(){
+        if (dismissed) return;
+        dismissed = true;
+        sessionStorage.setItem("splashShown", "1");
+        if (intro) intro.kill();
+        if (pulse) pulse.kill();
+
+        const splashRect = splashStar.getBoundingClientRect();
+        const heroRect = heroStar.getBoundingClientRect();
+
+        //Finding excat position of star in hero so the splash star can travel to its ecat location and morph with hero star
+        const dx = (heroRect.left + heroRect.width / 2) - (splashRect.left + splashRect.width / 2);
+        const dy = (heroRect.top + heroRect.height / 2) - (splashRect.top + splashRect.height / 2);
+
+        const outro = gsap.timeline ({
+            onComplete: () => {
+                splash.remove();
+                window.removeEventListener("wheel", preventScroll);
+                window.removeEventListener("touchmove", preventScroll);
+                window.scrollTo(0,0);
+                document.documentElement.classList.remove("splash-active");
+                document.body.classList.remove("splash-active");
+                ScrollTrigger.getAll().forEach(t => t.enable());
+                ScrollTrigger.refresh(true);
+                outro.kill();
+            }
+        });
+
+        if(reduceMotion){
+            outro.to(splash, {opacity: 0, duration: 0.4, ease: "power1.out"});
+            return;
+        }
+
+        outro.to(splashHint, {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power1.out"
+        }, 0);
+
+        outro.set(splashStar, {scale: 1, opacity: 1}, 0);
+
+        outro.to(splashStar, {
+            x: dx,
+            y: dy,
+            duration: 1.2,
+            ease: "power2.inOut"
+        }, 0);
+
+        outro.to(splash,{
+            opacity: 0,
+            duration: 2.0,
+            ease: "power2.inOut",
+        }, 0.2);
+        
+    }
+
+    splash.addEventListener("click", dismiss);
+    setTimeout(dismiss, 8000);
+
+    //Any scroll input dismisses the splash immediately
+    window.addEventListener("wheel", dismiss, {once: true, passive: true});
+    window.addEventListener("touchstart", dismiss, {once: true, passive: true});
+    window.addEventListener("keydown", dismiss, {once: true});
+    
+}) ();
+
+
+
 // ===== FUNCTION TO UPDATE NAVIGATION BAR =====
 function updateActiveNav(section) {
     document.querySelectorAll(".nav-link").forEach(link => {
@@ -104,10 +241,14 @@ const heroTimeline = gsap.timeline({
     }
 });
 
-heroTimeline.to(heroOverlay,{
-    y: () => -overlayTravel,
-    ease:"none",
-}, 0);
+heroTimeline.fromTo(heroOverlay,
+    {y: 0},
+    {
+        y: () => -overlayTravel,
+        ease:"none",
+    }, 
+    0
+);
 
 
 // ===== ENTRANCE ANIMATIONS =====

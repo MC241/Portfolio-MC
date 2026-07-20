@@ -14,6 +14,10 @@
     </head>
 
     <body>
+        <div id="splash" class="position-fixed top-0 start-0 w-100 vh-100 d-flex flex-column align-items-center justify-content-center gap-4">
+            <img src="./assets/star-small.svg" id="splashStar" alt="" aria-hidden="true">
+            <p class="splash-hint label-lg text-center" id="splashHint">CLICK TO ENTER</p>
+        </div>
         <!-- NAV -->
         <header class="position-fixed top-0 start-0 w-100" id="mainHeader">
             <nav class="navbar navbar-expand-md px-3" aria-label="Main Navigation">
@@ -54,7 +58,7 @@
         <!-- HERO OVERLAY (fixed, goes up to reveal space) -->
         <section id="home" class="hero-overlay position-fixed top-0 start-0 w-100">
             <div class="hero-content d-flex flex-column align-items-center justify-content-center gap-4 px-3">
-                <img src="./assets/star-small.svg" alt="" aria-hidden="true">
+                <img src="./assets/star-small.svg" id="heroStar" alt="" aria-hidden="true">
                 <h1 class="hero-title">Marta's<br><em>Portfolio</em></h1>
                 <p class="hero-tagline label-lg text-center">A UNIVERSE OF ART AND WEB DESIGN</p>
                 <div class="banner d-flex align-items-center w-100">

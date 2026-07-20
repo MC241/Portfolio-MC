@@ -30,6 +30,7 @@
     --purple-glow:  #8576c4;   /* brighter purple, glows */ 
 
     /*--- Z INDEX SCALE --- */
+    --z-star: 2500;
     --z-content: 1;
     --z-decorative: 5;
     --z-hero-overlay: 50;
@@ -175,6 +176,28 @@ p, .text-md {
 body {
     font-family: var(--sans);
     background-image: radial-gradient(ellipse at 50% 80%, var(--cosmos-3) 0%, var(--cosmos-2) 45%, var(--cosmos) 75%);
+}
+
+/*===========================================================================================
+                                        SPLASH
+============================================================================================*/
+
+html.splash-active, body.splash-active{
+    overflow:hidden;
+}
+
+#splash{
+    background:var(--cosmos);
+    z-index: 2000;
+    cursor: pointer;
+}
+
+#splash.is-active{
+    display: flex;
+}
+
+.splash-hint {
+    color: var(--gold-dim);
 }
 
 /*===========================================================================================
