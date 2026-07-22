@@ -191,7 +191,7 @@ function calcScrollGeometry(){
     if(!heroOverlay || !scrollDriver) return;
 
     const overlayHeight = heroOverlay.offsetHeight;
-    overlayTravel = Math.max(overlayHeight, window.innerHeight);
+    overlayTravel = overlayHeight;
     scrollDriver.style.height = overlayTravel + "px";
 
 }
@@ -275,13 +275,36 @@ gsap.from(".planet-card", {
     }
 });
 
-gsap.from(".about-title", {
+gsap.from(".about-title, .about-portrait", {
     opacity: 0,
     scale: 0.85,
     ease: "power2.out",
     scrollTrigger: {
         trigger: "#about",
-        start: "top 50%",
+        start: "top 80%",
+        end: "top top",
+        scrub: 1,
+    }
+});
+
+gsap.from(".about-bio-placeholder", {
+    opacity: 0,
+    ease: "power2.out",
+    scrollTrigger:{
+        trigger: "#about",
+        start: "top 70%",
+        end: "top top",
+        scrub: 1,
+    }
+});
+
+gsap.from(".about-fact", {
+    opacity: 0,
+    ease: "power2.out",
+    stagger: 0.5,
+    scrollTrigger:{
+        trigger: "#about",
+        start: "top 60%",
         end: "top top",
         scrub: 1,
     }
@@ -306,7 +329,6 @@ function goToSection(section){
     }, 800);
 
 }
-
 
 // NAVIGATION THROUGH SCROLL
 const sectionIds=["home", "projects", "about", "contacts"];

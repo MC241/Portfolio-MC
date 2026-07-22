@@ -53,7 +53,7 @@
         </header>
 
         <!-- SCROLL SPACER same height as overlay -->
-        <div class="scroll-driver position-relative" id="scrollDriver"></div>
+        <div class="scroll-driver position-relative z-1" id="scrollDriver"></div>
 
         <!-- HERO OVERLAY (fixed, goes up to reveal space) -->
         <section id="home" class="hero-overlay position-fixed top-0 start-0 w-100">
@@ -82,7 +82,7 @@
         </section>
 
         <!-- COSMOS -->
-        <section id="projects" class="cosmos-section position-relative min-vh-100 overflow-hidden px-3">
+        <section id="projects" class="cosmos-section position-relative min-vh-100 overflow-hidden d-flex flex-column justify-content-center px-3">
             <div class="stars-layer position-fixed top-0 start-0 w-100 h-100 z-0 pe-none" id="starsLayer"></div>
 
             <div class="cosmos-content position-relative mx-auto" id="cosmosContent">
@@ -115,45 +115,69 @@
             </div>
         </section>
 
-        <section class="about-section d-flex align-items-center justify-content-center w-100 py-5 px-3" id="about">
-            <div class="about-inner mx-auto">
-                <h2 class="about-title">About <em>me</em></h2>
+        <section class="about-section d-flex align-items-center w-100 py-5 px-3" id="about">
+            <div class="about-inner d-grid row-gap-4 mx-auto">
+                <h2 class="about-title mb-5">About <em>me</em></h2>
 
-                <div class="about-body d-flex flex-column flex-md-row-reverse align-items-center">
-                    <div class="about-portrait d-flex align-items-center justify-content-center text-center flex-md-shrink-0 w-100 mx-auto mx-md-0 rounded" role="img" aria-label="Placeholder for a portrait or illustrated self-portrait">
-                        <img src="./assets/girl edited.svg"
-                            alt=""
-                            width="300"
-                            height="700">
-                    </div>
+                <img src="./assets/girl-edited.svg"
+                        class="about-portrait w-100 h-auto"
+                        width="736"
+                        height="1326"
+                        alt="">
 
-                    <div class="about-bio d-flex flex-column gap-4">
-                        <p class="about-bio-placeholder text-md">
-                            Add a short introduction here: who you are, what you create,
-                            and what draws you to art and web design. Two or three
-                            sentences is plenty to start with — you can always expand it later.
-                        </p>
+                <div class="about-bio d-flex flex-column gap-4">
+                    <p class="about-bio-placeholder text-lg">
+                        Somewhere between a Computer Science degree and a much older habit of drawing, I found my way to Wed Design: the place where illustration, interface and code meet.
+                            
+                        I try to keep the two instincts in balance: design that works cleanly and still feels like it was made by hand.
+                    </p>
 
-                        <ul class="about-facts list-unstyled d-flex flex-column">
-                            <li class="about-fact d-flex flex-column gap-1">
-                                <span class="about-fact-key label-md">BASED IN</span>
-                                <span class="about-fact-value text-rg fst-italic">— add city/country —</span>
-                            </li>
-                            <li class="about-fact d-flex flex-column gap-1">
-                                <span class="about-fact-key label-md">FOCUS</span>
-                                <span class="about-fact-value text-rg fst-italic">— add specialisms —</span>
-                            </li>
-                            <li class="about-fact d-flex flex-column gap-1">
-                                <span class="about-fact-key label-md">TOOLS</span>
-                                <span class="about-fact-value text-rg fst-italic">— add software/stack —</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class="about-facts list-unstyled d-flex flex-column gap-4">
+                        <li class="about-fact d-flex flex-column gap-1">
+                            <span class="about-fact-key label-lg">BASED IN</span>
+                            <span class="about-fact-value text-lg fst-italic">— Lisbon/ Portugal —</span>
+                        </li>
+                        <li class="about-fact d-flex flex-column gap-1">
+                            <span class="about-fact-key label-lg">FOCUS</span>
+                            <span class="about-fact-value text-lg fst-italic">— Wed Design & Digital Illustration —</span>
+                        </li>
+                        <li class="about-fact d-flex flex-column gap-1">
+                            <span class="about-fact-key label-lg">TOOLS</span>
+                            <span class="about-fact-value text-lg fst-italic">— Pyhton, Java, C, HTML, CSS, Javascript, Figma —</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
-        <section class="contacts-section" id="contacts">
-            <h2>Contacts</h2>
+        <section class="contacts-section d-flex w-100 py-5 px-3" id="contacts">
+            <div class="contacts-inner mx-auto w-100">
+                <h2 class="contacts-title mb-5">Let's make something<em> together!</em></h2>
+                <p class="text-lg contacts-intro mb-5">
+                    I'm currently open to freelance illustration and web design work, as well as internships and collaborations.
+                    <br>If you would like to chat about a project - or just say hello - I'd love to hear from you.
+                </p>
+
+                <ul class="contacts-list list-unstyled">
+                    <li>
+                        <a class="contacts-link text-decoration-none label-lg" href="martamoreiradacruz@gmail.com">
+                            <span class="label-lg contacts-link-key">EMAIL:</span>
+                            martamoreiradacruz@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a class="contacts-link text-decoration-none label-lg" href="#" target="_blank" rel="noopener">
+                            <span class="label-lg contacts-link-key">INSTAGRAM:</span>
+                            @marta_c241
+                        </a>
+                    </li>
+                    <li>
+                        <a class="contacts-link text-decoration-none label-lg" href="#" target="_blank" rel="noopener">
+                            <span class="label-lg contacts-link-key">LINKEDIN:</span>
+                            Marta Moreira da Cruz
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </section>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
