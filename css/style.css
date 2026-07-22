@@ -441,10 +441,15 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
     .back-btn:hover:not(:active){
         background-image: radial-gradient(ellipse 65% 150% at 50% 50%, rgba(162, 160, 153, 0.20) 0%, transparent 75%);
     }
+    .contacts-link-value:hover:not(:active){
+        color: var(--gold-dim);
+    }
+}
 
     /* ACTIVE — the moment of click/tap */
     span.planet-enter:active,
-    .cta-btn:active {
+    .cta-btn:active,
+    .contacts-link-value:active{
     color: var(--gold-bright);
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -457,11 +462,11 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
         text-underline-offset: 4px;
         text-decoration-color: var(--lavender);
     }
-}
 
 /* FOCUS — keyboard navigation */
-span.planet-enter:focus-visible,
-.cta-btn:focus-visible {
+.planet-card:focus-visible,
+.project-card:focus-visible,
+.contacts-link:focus-visible {
     color: var(--gold-bright);
     outline: 1px solid var(--gold);
 }
@@ -473,22 +478,18 @@ span.planet-enter:focus-visible,
 
 /* DISABLED — links don't have a native disabled, so use a class */
 span.planet-enter.disabled,
-.cta-btn.disabled {
-    color: var(--ink-soft);
-    opacity: 0.4;
-    pointer-events: none;
-}
-
-.back-btn.disabled{
+.cta-btn.disabled,
+.back-btn.disabled,
+.contacts-link.disabled {
     color: var(--ink-soft);
     opacity: 0.4;
     pointer-events: none;
 }
 
 /*===========================================================================================
-                                    ABOUT/CONTACTS SECTION
+                                    ABOUT/CONTACTS/FOOTER SECTION
 ============================================================================================*/
-.about-section, .contacts-section{
+.about-section{
     min-height: 100vh;
 }
 
@@ -496,15 +497,11 @@ span.planet-enter.disabled,
     max-width: 900px;
 }
 
-.about-title, .contacts-title{
+.about-title, .contacts-title, .footer-name{
     color: var(--white);
 }
 
-.about-title em, .contacts-title em {
-    color: var(--lavender);
-}
-
-.about-bio-placeholder {
+.about-title em, .contacts-title em, .about-bio-placeholder, .contacts-intro, .footer-tagline {
     color: var(--lavender);
 }
 
@@ -512,7 +509,7 @@ span.planet-enter.disabled,
     border-bottom: 1px solid color-mix(in oklab, var(--lavender-dim) 25%, transparent);
 }
 
-.about-fact-key {
+.about-fact-key, .contacts-link {
     color: var(--lavender-cue);
 }
 
@@ -526,11 +523,6 @@ span.planet-enter.disabled,
     width: auto;
     object-fit: contain;
 }
-
-/*===========================================================================================
-                                        CONTACTS
-============================================================================================*/
-
 
 /*===========================================================================================
                                         RESPONSIVENESS
