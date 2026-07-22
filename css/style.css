@@ -446,22 +446,22 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
     }
 }
 
-    /* ACTIVE — the moment of click/tap */
-    span.planet-enter:active,
-    .cta-btn:active,
-    .contacts-link-value:active{
+/* ACTIVE — the moment of click/tap */
+span.planet-enter:active,
+.cta-btn:active,
+.contacts-link-value:active{
     color: var(--gold-bright);
     text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-color: var(--gold-bright);
-    }
+}
 
-    .back-btn:active{
+.back-btn:active{
         color: var(--lavender);
         text-decoration: underline;
         text-underline-offset: 4px;
         text-decoration-color: var(--lavender);
-    }
+}
 
 /* FOCUS — keyboard navigation */
 .planet-card:focus-visible,
