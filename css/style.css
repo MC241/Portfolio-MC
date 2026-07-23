@@ -188,6 +188,21 @@ body {
 }
 
 /*===========================================================================================
+                                        ACESSIBILITY
+============================================================================================*/
+
+.skip-link:focus{
+    position:fixed;
+    top: 0.5;
+    left: 0.5;
+    z-index: 3000;
+    padding: 0.5rem 1rem;
+    background: var(--cosmos);
+    color: var(--white);
+    border-radius: 0.25rem;
+}
+
+/*===========================================================================================
                                         SPLASH
 ============================================================================================*/
 
@@ -373,7 +388,6 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 /* ===== PLANETS ===== */
 .planets-row {
     z-index: var(--z-decorative);
-    grid-template-columns: 1fr;
 }
 
 .art-planet, .wd-planet{
@@ -467,10 +481,10 @@ span.planet-enter:active,
 }
 
 .back-btn:active{
-        color: var(--lavender);
-        text-decoration: underline;
-        text-underline-offset: 4px;
-        text-decoration-color: var(--lavender);
+    color: var(--lavender);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--lavender);
 }
 
 /* FOCUS — keyboard navigation */
@@ -569,14 +583,11 @@ span.planet-enter.disabled,
         grid-row: 1;
     }
 
-    .about-body {
+    .about-bio {
         grid-column: 1;
         grid-row: 2;
-    }
-
-    .about-bio {
         flex: 1;
-        min-width: 0;
+        min-width:0;
     }
 
     .about-portrait{

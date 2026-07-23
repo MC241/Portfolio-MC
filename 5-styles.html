@@ -20,6 +20,7 @@
     <body>
         <!--Nav bar-->
         <header class="dark" id="mainHeader">
+            <a class="skip-link visually-hidden-focusable" href="#main-content">Skip to main content</a>
             <nav class="navbar navbar-expand-md d-flex align-items-center px-3" aria-label="Main Navigation">
                 <button class="navbar-toggler border-0 ms-auto" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +53,7 @@
             </nav>
         </header>
 
-        <main class="project-page container px-3 pb-5 min-vh-100">
+        <main class="project-page container px-3 pb-5 min-vh-100" id="main-content">
             <div class="d-flex justify-content-end mb-2 mb-md-3">
                 <a href="./art-projects.html">
                     <span class="back-btn label-md d-inline-flex align-items-center gap-2 p-2">BACK TO PROJECTS
@@ -92,13 +93,13 @@
                     </div>
                 </div>
 
-                <div class="project-section reveal">
+                <div class="reveal">
                     <p class="project-section-label label-lg">STATEMENT</p>
-                    <p class=" project-section-body text-md">A class exercise in stylistic range. One reference photo, five distinct interpretations: geometric, line and blobs, black and white, silhouette and childish. The subject was chosen freely.</p>
-                    <p class=" project-section-body text-md mb-0">Each variation asks the same image to speak a different visual language, from the structural logic of geometry to the looseness of organic line. The exercise as a whole is an argument of adaptability.</p>
+                    <p class="text-md">A class exercise in stylistic range. One reference photo, five distinct interpretations: geometric, line and blobs, black and white, silhouette and childish. The subject was chosen freely.</p>
+                    <p class="text-md mb-0">Each variation asks the same image to speak a different visual language, from the structural logic of geometry to the looseness of organic line. The exercise as a whole is an argument of adaptability.</p>
                 </div>
 
-                <div class="project-section reveal">
+                <div class="reveal">
                     <p class="project-section-label label-lg">Reference & Base Sketch</p>
                     <div class="d-flex flex-md-row flex-column gap-4">
                         <figure class="d-flex flex-column gap-2 mb-0">
@@ -127,7 +128,7 @@
                 </div>
 
                 <!-- data-stage-progress-root: custom data attribute: used in Javascript to make stage-progress bar-->
-                <div class="project-section reveal d-flex flex-column" data-stage-progress-root data-stage-fill="false">
+                <div class="reveal d-flex flex-column" data-stage-progress-root data-stage-fill="false">
                     <p class="project-section-label text-start label-lg">FINAL ILLUSTRATIONS</p>
                     <!-- Progress Carousel -->
                     <div class="swiper stage-swiper w-100 overflow-hidden rounded" data-stage-swiper>
