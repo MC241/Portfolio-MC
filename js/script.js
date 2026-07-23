@@ -9,6 +9,7 @@ ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load
     const splash = document.getElementById("splash");
     const splashStar = document.getElementById("splashStar");
     const splashHint = document.getElementById("splashHint");
+    const heroStar = document.getElementById("heroStar");
 
     if (!splash || !splashStar || !heroStar) return;
 
@@ -143,7 +144,13 @@ ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load
 // ===== FUNCTION TO UPDATE NAVIGATION BAR =====
 function updateActiveNav(section) {
     document.querySelectorAll(".nav-link").forEach(link => {
-        link.classList.toggle("active", link.dataset.section === section);
+        const isActive = link.dataset.section === section;
+        link.classList.toggle("active", isActive);
+        if (isActive){
+            link.setAttribute("aria-current", "page");
+        }else{
+            link.removeAttribute("aria-current");
+        }
     });
 }
 
@@ -191,7 +198,7 @@ function calcScrollGeometry(){
     if(!heroOverlay || !scrollDriver) return;
 
     const overlayHeight = heroOverlay.offsetHeight;
-    overlayTravel = Math.max(overlayHeight, window.innerHeight);
+    overlayTravel = overlayHeight;
     scrollDriver.style.height = overlayTravel + "px";
 
 }
@@ -252,40 +259,74 @@ heroTimeline.fromTo(heroOverlay,
 
 
 // ===== ENTRANCE ANIMATIONS =====
-gsap.from(".cosmos-title", {
-    opacity: 0,
-    scale: 0.85,
-    ease: "power2.out",
-    scrollTrigger: {
-        trigger: "#projects",
-        start: "top 50%",
-        end: "top top",
-        scrub: 1,
-    }
-});
+//Decorative animations: skipped for users who prefer reduced motion (WCAG 2.3.3)
 
-gsap.from(".planet-card", {
-    scale: 0,
-    ease: "power2.out",
-    scrollTrigger: {
-        trigger: ".planets-row",
-        start: "top 90%",
-        end: "bottom 80%",
-        scrub: 1,
-    }
-});
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-gsap.from(".about-title", {
-    opacity: 0,
-    scale: 0.85,
-    ease: "power2.out",
-    scrollTrigger: {
-        trigger: "#about",
-        start: "top 50%",
-        end: "top top",
-        scrub: 1,
-    }
-});
+if (prefersReducedMotion){
+    gsap.set(".cosmos-title, .planet-card, .about-title, .about-portrait, .about-bio-placeholder, .about-fact",{
+        opacity: 1,
+        scale: 1,
+    });
+} else {
+    gsap.from(".cosmos-title", {
+        opacity: 0,
+        scale: 0.85,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: "#projects",
+            start: "top 50%",
+            end: "top top",
+            scrub: 1,
+        }
+    });
+
+    gsap.from(".planet-card", {
+        scale: 0,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".planets-row",
+            start: "top 90%",
+            end: "bottom 80%",
+            scrub: 1,
+        }
+    });
+
+    gsap.from(".about-title, .about-portrait", {
+        opacity: 0,
+        scale: 0.85,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: "#about",
+            start: "top 80%",
+            end: "top top",
+            scrub: 1,
+        }
+    });
+
+    gsap.from(".about-bio-placeholder", {
+        opacity: 0,
+        ease: "power2.out",
+        scrollTrigger:{
+            trigger: "#about",
+            start: "top 70%",
+            end: "top top",
+            scrub: 1,
+        }
+    });
+
+    gsap.from(".about-fact", {
+        opacity: 0,
+        ease: "power2.out",
+        stagger: 0.5,
+        scrollTrigger:{
+            trigger: "#about",
+            start: "top 60%",
+            end: "top top",
+            scrub: 1,
+        }
+    });
+}
 
 // GO TO A SECTION FUCNTION
 function goToSection(section){
@@ -306,7 +347,6 @@ function goToSection(section){
     }, 800);
 
 }
-
 
 // NAVIGATION THROUGH SCROLL
 const sectionIds=["home", "projects", "about", "contacts"];

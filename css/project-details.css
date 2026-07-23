@@ -5,22 +5,13 @@ body{
     background: var(--cosmos-2);
 }
 
-.project-page{
-    padding-top: calc(var(--nav-h) + 16px);
-}
-
 .project-body{
-    max-width: min(100%, 85vh);
+    max-width: min(100%,90vh);
     color: var(--lavender);
 }
 
 .project-number{
     color: var(--lavender-cue);
-}
-
-.project-hero-image, .project-demo-video{
-    max-width: 100%;
-    max-height: 85vh;
 }
 
 .project-divider{
@@ -56,11 +47,6 @@ body{
 }
 
 /*========================================CAROUSEL PROGRESS BAR===================================*/
-
-.carousel-image{
-    max-height: 85vh;
-}
-
 /*just a fallback value for the progress bar's width in case JavaScript fails to calculate it.*/
 .stage-progress{
     width: min(560px, 80vw);

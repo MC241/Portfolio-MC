@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Drawing — Marta's Portfolio</title>
+    <meta name="description" content="Web design case studies by Marta - Prisma, Eucerin x Rita Pereira, and LSD Connect. UX/UI projects from a Lisbon School of Design student.">
+    <title>Web Design — Marta's Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
@@ -13,6 +14,7 @@
 
 <body>
     <!-- Nav bar-->
+    <a class="skip-link visually-hidden-focusable" href="#main-content">Skip to main content</a>
     <header class="position-fixed w-100 dark" id="mainHeader">
         <nav class="navbar navbar-expand-md d-flex align-items-center px-3" aria-label="Main Navigation">
             <button class="navbar-toggler border-0 ms-auto" type="button" data-bs-toggle="collapse"
@@ -46,14 +48,14 @@
         </nav>
     </header>
 
-    <section class="view d-flex flex-column">
+    <section class="view min-vh-100 d-flex flex-column" id="main-content">
         <div class="container px-3 px-md-4 py-3 py-md-4">
 
             <!-- Back button -->
             <div class="d-flex justify-content-end mb-2 mb-md-3">
                 <a href="./index.html?section=projects">
-                    <span class="back-btn label-md d-inline-flex align-items-center gap-2">BACK TO SPACE
-                        <span class="back-icon d-flex align-items-center justify-content-center">
+                    <span class="back-btn label-md d-inline-flex align-items-center gap-2 p-2">BACK TO SPACE
+                        <span class="back-icon d-flex align-items-center justify-content-center rounded-circle">
                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                                 <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
                             </svg>
@@ -73,10 +75,13 @@
 
                 <!-- Card 1: Prisma PT -->
                 <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="project-card h-100 d-flex flex-column gap-3">
-                        <div class="card-img-wrapper">
-                            <img src="./assets/wd-images/prisma_pt.png" alt="Prisma PT homescreen mockup" class="thumbnail w-100">
-                        </div>
+                    <a href="./prismaPT.html" class="project-card d-flex flex-column text-decoration-none h-100 gap-3">
+                        <picture>
+                            <source srcset="./assets/wd-images/prisma_pt.webp" type="image/webp">
+                            <img src="./assets/wd-images/prisma_pt.png"
+                                class="thumbnail rounded w-100"
+                                alt="Prisma PT homescreen mockup">
+                        </picture>
                         <p class="project-num label-md mb-0">PROJECT 1</p>
                         <h3 class="project-title mb-0">Prisma PT</h3>
                         <p class="project-desc mb-0">Mobile app concept of a political news and learning app for young Portuguese adults.</p>
@@ -84,23 +89,25 @@
                             <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">UX RESEARCH</span>
                             <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">MOBILE</span>
                         </div>
-                        <a href="./prismaPT.html" class="cta-btn d-inline-flex align-self-start align-items-center text-decoration-none gap-1 label-lg p-0">
+                        <span class="cta-btn d-inline-flex align-self-start align-items-center gap-1 label-lg p-0">
                             VIEW PROJECT
                             <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
                                 <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M0.5 4.5H16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                        </a>
-                    </div>
+                        </span>
+                    </a>
                 </div>
 
                 <!-- Card 2: Eucerin x Rita Pereira -->
                 <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="project-card h-100 d-flex flex-column gap-3">
-                        <div class="card-img-wrapper">
-                            <img src="./assets/wd-images/eucerin.png" class="img-fluid w-100"
-                                alt=" Mockup concept landing page with Eucerin product and Rita Pereira">
-                        </div>
+                    <a href="./eucerin.html" class="project-card d-flex flex-column text-decoration-none h-100 gap-3">
+                        <picture>
+                            <source srcset="./assets/wd-images/eucerin.webp" type="image/webp">
+                            <img src="./assets/wd-images/eucerin.png"
+                                class="thumbnail rounded w-100"
+                                alt="Eucerin hero section mockup on desktop">
+                        </picture>
                         <p class="project-num label-md mb-0">PROJECT 2</p>
                         <h3 class="project-title mb-0">Eucerin x Rita Pereira</h3>
                         <p class="project-desc mb-0">Landing page concept for skincare brand partnership campaign.</p>
@@ -108,22 +115,25 @@
                             <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">CAMPAIGN</span>
                             <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">BRAND</span>
                         </div>
-                        <a href="./eucerin.html" class="cta-btn d-inline-flex align-self-start align-items-center text-decoration-none gap-1 label-lg p-0">
+                        <span class="cta-btn d-inline-flex align-self-start align-items-center gap-1 label-lg p-0">
                             VIEW PROJECT
                             <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
                                 <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M0.5 4.5H16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                        </a>
-                    </div>
+                        </span>
+                    </a>
                 </div>
 
-                <!-- Card 3: 5 Styles -->
+                <!-- Card 3: LSD Connect -->
                 <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="project-card h-100 d-flex flex-column gap-3">
-                        <div class="card-img-wrapper">
-                            <img src="./assets/wd-images/lsd-connect.png" alt="5 Styles illustration" class="img-fluid w-100">
-                        </div>
+                    <a href="./lsd-connect.html" class="project-card d-flex flex-column text-decoration-none h-100 gap-3">
+                        <picture>
+                            <source srcset="./assets/wd-images/lsd-connect.webp" type="image/webp">
+                            <img src="./assets/wd-images/lsd-connect.png"
+                                class="thumbnail rounded w-100"
+                                alt="LSD mockup on mobile and desktop">
+                        </picture>
                         <p class="project-num label-md mb-0">PROJECT 3</p>
                         <h3 class="project-title mb-0">LSD Connect</h3>
                         <p class="project-desc mb-0">Landing page concept for an app that helps LSD students bridge the gap between talent and job opportunities.</p>
@@ -131,14 +141,14 @@
                             <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">RESPONSIVE</span>
                             <span class="tag-pill label-sm d-inline-flex align-items-center rounded-pill px-2">COURSEWORK</span>
                         </div>
-                        <a href="./lsd-connect.html" class="cta-btn d-inline-flex align-self-start align-items-center text-decoration-none gap-1 label-lg p-0">
+                        <span class="cta-btn d-inline-flex align-self-start align-items-center gap-1 label-lg p-0">
                             VIEW PROJECT
                             <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true">
                                 <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M0.5 4.5H16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                        </a>
-                    </div>
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>

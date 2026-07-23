@@ -31,7 +31,6 @@
 
     /*--- Z INDEX SCALE --- */
     --z-star: 2500;
-    --z-content: 1;
     --z-decorative: 5;
     --z-hero-overlay: 50;
     --z-nav: 100;
@@ -43,6 +42,8 @@
 
     /*--- LAYOUT ---*/
     --nav-h: 60px;
+    --drip-h: clamp(120px, 30vw, 280px);
+    --max-opacity: 1;
 }
 
 
@@ -173,9 +174,32 @@ p, .text-md {
     box-sizing: border-box;
 }
 
+html{
+    width: 100%;
+    overflow-x: hidden; 
+}
+
 body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
     font-family: var(--sans);
     background-image: radial-gradient(ellipse at 50% 80%, var(--cosmos-3) 0%, var(--cosmos-2) 45%, var(--cosmos) 75%);
+}
+
+/*===========================================================================================
+                                        ACESSIBILITY
+============================================================================================*/
+
+.skip-link:focus{
+    position:fixed;
+    top: 0.5;
+    left: 0.5;
+    z-index: 3000;
+    padding: 0.5rem 1rem;
+    background: var(--cosmos);
+    color: var(--white);
+    border-radius: 0.25rem;
 }
 
 /*===========================================================================================
@@ -183,11 +207,11 @@ body {
 ============================================================================================*/
 
 html.splash-active, body.splash-active{
-    overflow:hidden;
+    overflow: hidden;
 }
 
 #splash{
-    background:var(--cosmos);
+    background: var(--cosmos);
     z-index: 2000;
     cursor: pointer;
 }
@@ -258,24 +282,24 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
                                         SCROLL ENGINE
 ============================================================================================*/
 .scroll-driver {
-    height: 100vh;
-    z-index: var(--z-content);
+    height: calc(100vh + var(--drip-h));
+    height: calc(100dvh + var(--drip-h));
 }
 
 .hero-overlay {
-    height: calc(100vh + min(30vw, 280px));
+    height: calc(100vh + var(--drip-h));
+    height: calc(100dvh + var(--drip-h));
     z-index: var(--z-hero-overlay);
     will-change: transform;
 } 
 
 .hero-content{
     height: 100vh;
+    height: 100dvh;
     background: var(--white);
 }
 .drip-edge {
-    height: 30vw;
-    min-height: 120px;
-    max-height: 280px;
+    height: var(--drip-h);
     margin-top: -2px;
 }
 /*===========================================================================================
@@ -307,7 +331,7 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 .scroll-indicator {
     min-width: 44px;
     min-height: 44px;
-    bottom: calc(min(30vw, 280px) + 3rem);
+    bottom: calc(var(--drip-h) + 3rem);
     color: var(--ink);
     cursor: pointer;
 }
@@ -344,12 +368,12 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
     50% { opacity: var(--max-opacity); }
 }
 
-.cosmos-section{
-    padding-top: 30vh;
-}
 /* Cosmos content */
+.cosmos-section {
+    padding-top: 6rem;
+}
+
 .cosmos-content {
-    max-width: 600px;
     z-index: var(--z-decorative);
 }
 
@@ -364,16 +388,8 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 /* ===== PLANETS ===== */
 .planets-row {
     z-index: var(--z-decorative);
-    grid-template-columns: 1fr;
 }
 
-.card-art{
-    justify-self: start;
-}
-
-.card-wd{
-    justify-self: end;
-}
 .art-planet, .wd-planet{
     height: 130px;
     width: 130px;
@@ -396,7 +412,6 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 ============================================================================================*/
 .view{
     padding-top: calc(var(--nav-h));
-    min-height: 100vh;
 }
 
 .back-btn{
@@ -411,7 +426,6 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
 .back-icon{
     width: 30px;
     height: 30px;
-    border-radius: 50%;
     border: 0.7px solid var(--lavender-dim);
     font-size: 14px;
 }
@@ -439,12 +453,6 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
     min-width: 44px;
 }
 
-.thumbnail{
-    aspect-ratio: 1/1; 
-    border-radius: 6px;
-    object-fit: cover; 
-}
-
 /*===========================================================================================
                                         BUTTON STATES
 ============================================================================================*/
@@ -457,27 +465,32 @@ header.dark .nav-diamond, header.dark .navbar-toggler-icon{
     .back-btn:hover:not(:active){
         background-image: radial-gradient(ellipse 65% 150% at 50% 50%, rgba(162, 160, 153, 0.20) 0%, transparent 75%);
     }
+    .contacts-link-value:hover:not(:active){
+        color: var(--gold-dim);
+    }
+}
 
-    /* ACTIVE — the moment of click/tap */
-    span.planet-enter:active,
-    .cta-btn:active {
+/* ACTIVE — the moment of click/tap */
+span.planet-enter:active,
+.cta-btn:active,
+.contacts-link-value:active{
     color: var(--gold-bright);
     text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-color: var(--gold-bright);
-    }
+}
 
-    .back-btn:active{
-        color: var(--lavender);
-        text-decoration: underline;
-        text-underline-offset: 4px;
-        text-decoration-color: var(--lavender);
-    }
+.back-btn:active{
+    color: var(--lavender);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--lavender);
 }
 
 /* FOCUS — keyboard navigation */
-span.planet-enter:focus-visible,
-.cta-btn:focus-visible {
+.planet-card:focus-visible,
+.project-card:focus-visible,
+.contacts-link:focus-visible {
     color: var(--gold-bright);
     outline: 1px solid var(--gold);
 }
@@ -489,64 +502,35 @@ span.planet-enter:focus-visible,
 
 /* DISABLED — links don't have a native disabled, so use a class */
 span.planet-enter.disabled,
-.cta-btn.disabled {
-    color: var(--ink-soft);
-    opacity: 0.4;
-    pointer-events: none;
-}
-
-.back-btn.disabled{
+.cta-btn.disabled,
+.back-btn.disabled,
+.contacts-link.disabled {
     color: var(--ink-soft);
     opacity: 0.4;
     pointer-events: none;
 }
 
 /*===========================================================================================
-                                        ABOUT/CONTACTS SECTION
+                                    ABOUT/CONTACTS/FOOTER SECTION
 ============================================================================================*/
-.about-section, .contacts-section{
-    min-height: 80vh;
-}
 
-.about-inner{
+.about-inner, .contacts-inner{
     max-width: 900px;
 }
 
-.about-title{
+.about-title, .contacts-title, .footer-name{
     color: var(--white);
-    margin-bottom: 48px;
 }
 
-.about-title em {
+.about-title em, .contacts-title em, .about-bio-placeholder, .contacts-intro, .footer-tagline {
     color: var(--lavender);
-}
-
-.about-body {
-    gap: 32px;
-}
-
-.about-portrait {
-    max-width: 280px;
-    border: 1px dashed;
-    background: var(--cosmos-3);
-    color: var(--ink-soft);
-}
-
-.about-bio-placeholder {
-    color: var(--lavender);
-}
-
-.about-facts {
-    gap: 12px;
 }
 
 .about-fact {
-    padding-bottom: 12px;
-    border-bottom: 0.5px solid;
-    opacity: 0.7;
+    border-bottom: 1px solid color-mix(in oklab, var(--lavender-dim) 25%, transparent);
 }
 
-.about-fact-key {
+.about-fact-key, .contacts-link {
     color: var(--lavender-cue);
 }
 
@@ -554,35 +538,24 @@ span.planet-enter.disabled,
     color: var(--lavender-dim);
 }
 
+.about-portrait{
+    z-index: var(--z-decorative);
+    max-height: 80vh;
+    object-fit: contain;
+}
+
 /*===========================================================================================
                                         RESPONSIVENESS
 ============================================================================================*/
-@media(min-width: 600px){
+@media(min-width: 567px){
 
     .cosmos-title{
         margin-bottom:40px;
     }
 
-    .planets-row{
-        grid-template-columns: 1fr 1fr;
-        column-gap: 24px;
-    }
-
-    .card-art{
-        grid-column: 1;
-    }
-
-    .card-wd{
-        grid-column: 2;
-    }
-
 }
 
 @media (min-width: 768px){
-    .art-planet , .wd-planet{
-        width: 200px;
-        height: 200px;
-    }
 
     .cosmos-content{
         max-width: 900px;
@@ -592,14 +565,47 @@ span.planet-enter.disabled,
         margin-bottom: 64px;
     }
 
-    .about-body {
-        gap: 64px;
+    .art-planet , .wd-planet{
+        width: 200px;
+        height: 200px;
+    }
+
+    .about-inner{
+        display: grid;
+        grid-template-columns: 1fr 42%;
+        grid-template-rows: auto 1fr;
+        column-gap: 64px;
+        row-gap: 0;
+    }
+
+    .about-title{
+        grid-column: 1;
+        grid-row: 1;
     }
 
     .about-bio {
+        grid-column: 1;
+        grid-row: 2;
         flex: 1;
+        min-width:0;
+    }
+
+    .about-portrait{
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        height: 100%;
+        width: 100%;
     }
 }
 
+@media (prefers-reduced-motion: reduce){
+    .star-particles{
+        animation: none;
+        opacity: var(--max-opacity, 0.5);
+    }
 
+    .scroll-line{
+        animation: none;
+    }
+}
 
