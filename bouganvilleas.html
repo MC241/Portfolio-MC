@@ -14,14 +14,15 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/project-details.css">
+        <link rel="icon" href="./assets/diamond.svg" type="image/svg+xml">
     </head>
 
     <body>
         <!--Nav bar-->
-        <header class="position-fixed w-100 dark" id="mainHeader">
+        <header class="dark" id="mainHeader">
             <nav class="navbar navbar-expand-md d-flex align-items-center px-3" aria-label="Main Navigation">
                 <button class="navbar-toggler border-0 ms-auto" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Changing navigation">
+                    data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navMenu">
@@ -32,7 +33,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link label-lg active d-flex align-items-center gap-2" href="./index.html?section=projects" data-section="projects">
+                            <a class="nav-link label-lg active d-flex align-items-center gap-2" href="./index.html?section=projects" data-section="projects" aria-current="page">
                                 <img src="./assets/diamond.svg" class="nav-diamond" alt=""> PROJECTS
                             </a>
                         </li>
@@ -57,7 +58,7 @@
             <div class="d-flex justify-content-end mb-2 mb-md-3">
                 <a href="./art-projects.html">
                     <span class="back-btn label-md d-inline-flex align-items-center gap-2 p-2">BACK TO PROJECTS
-                        <span class="back-icon d-flex align-items-center justify-content-center">
+                        <span class="back-icon d-flex align-items-center justify-content-center rounded-circle">
                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                                 <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
                             </svg>
@@ -72,7 +73,7 @@
                     <picture>
                         <source srcset="./assets/art-images/bouganvilleas/Bouganvilleas-Final.webp" type="image/webp">
                         <img src="./assets/art-images/bouganvilleas/Bouganvilleas-Final.png" 
-                            class="project-hero-image d-block h-auto mx-auto rounded mb-4" 
+                            class="project-hero-image d-block w-100 mx-auto h-auto rounded mb-4" 
                             width="1600" 
                             height="1600" 
                             alt="Illustrated night scene: a woman in a blue dress leans barefoot over a greem wrought-iron railing on the left, and a man in a dark sweater leans over a matching railing on the right. Between them, he holds up a glowing white flower she reachers toward. Overhead, an arch of flowering vines the two railings against a starry night sky.">
@@ -102,7 +103,7 @@
 
                 <!-- data-stage-progress-root: custom data attribute: used in Javascript to make stage-progress bar-->
                 <div class="project-section reveal d-flex flex-column" data-stage-progress-root>
-                    <p class="project-section-label text-left label-lg">PROCESS</p>
+                    <p class="project-section-label text-start label-lg">PROCESS</p>
                     <!-- Progress Carousel -->
                     <div class="swiper stage-swiper w-100 overflow-hidden rounded" data-stage-swiper>
                         <div class="swiper-wrapper">

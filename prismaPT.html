@@ -16,10 +16,11 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/project-details.css">
+        <link rel="icon" href="./assets/diamond.svg" type="image/svg+xml">
     </head>
 
     <body>
-        <header class="position-fixed w-100 dark" id="mainHeader">
+        <header class="dark" id="mainHeader">
             <nav class="navbar navbar-expand-md d-flex align-items-center px-3" aria-label="Main Navigation">
                 <button class="navbar-toggler border-0 ms-auto" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Changing navigation">
@@ -57,7 +58,7 @@
             <div class="d-flex justify-content-end mb-2 mb-md-3">
                 <a href="./web-projects.html">
                     <span class="back-btn label-md d-inline-flex align-items-center gap-2 p-2">BACK TO PROJECTS
-                        <span class="back-icon d-flex align-items-center justify-content-center">
+                        <span class="back-icon d-flex align-items-center justify-content-center rounded-circle">
                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                                 <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
                             </svg>
@@ -72,7 +73,7 @@
                     <picture>
                         <source srcset="./assets/wd-images/prisma_pt.webp" type="image/webp">
                         <img src="./assets/wd-images/prisma_pt.png" 
-                            class="project-hero-image d-block h-auto mx-auto rounded mb-4" 
+                            class="d-block w-100 mx-auto h-auto rounded mb-4" 
                             width="1600" 
                             height="1600" 
                             alt="Prisma PT app splash screen: a white diamond icon with a muticolor triangular flag, and the tagline 'Onde a política tem mais do que um lado'.">
@@ -124,7 +125,7 @@
                     <h4 class="project-pullquote mb-3 ps-3">All UX stages and UI design choices can be found <a href="https://www.figma.com/slides/mcPhU30jbVceLXm5i6HRRL" target="_blank" class="link-project">here</a> in <em>full detail</em></h4>
                     <ul class="project-process-steps project-section-body list-unstyled d-flex flex-column gap-2 mb-0">
                         <li class="text-md">1. <a href="https://www.figma.com/deck/mcPhU30jbVceLXm5i6HRRL/Prisma-PT?node-id=1-83" target="_blank" class="link-project">Empathy:</a> desk research; questionnaire; personas; benchmarking (slides 2-12)</li>
-                        <li class="text-md">2. <a href="https://www.figma.com/deck/mcPhU30jbVceLXm5i6HRRL/Prisma-PT?node-id=1-140"target="_blank" class="link-project">Strategy:</a> user journey; user stories; How might we; Sitemap (slides 12-16)</li>
+                        <li class="text-md">2. <a href="https://www.figma.com/deck/mcPhU30jbVceLXm5i6HRRL/Prisma-PT?node-id=1-140" target="_blank" class="link-project">Strategy:</a> user journey; user stories; How might we; Sitemap (slides 12-16)</li>
                         <li class="text-md">3. <a href="https://www.figma.com/deck/mcPhU30jbVceLXm5i6HRRL/Prisma-PT?node-id=1-160" target="_blank" class="link-project">Ideation:</a> user flow; lo-fi, hi-fi wireframes; grid and layout (slides 17-23)</li>
                         <li class="text-md">4. <a href="https://www.figma.com/deck/mcPhU30jbVceLXm5i6HRRL/Prisma-PT?node-id=1-195" target="_blank" class="link-project">Prototyping:</a> UI kit (slides 24-27)</li>
                         <li class="text-md">5. <a href="https://www.figma.com/deck/mcPhU30jbVceLXm5i6HRRL/Prisma-PT?node-id=1-215" target="_blank" class="link-project">Validation:</a> usability testing (slides 28-39)</li>
@@ -138,7 +139,7 @@
                     <div class="d-flex gap-4 mb-2">
                         <picture>
                             <source srcset="./assets/wd-images/debates1.webp" type="image/webp">
-                            <img src="./assets/art-images/wd-images/debates1.png" class="d-block mx-auto w-100 h-auto rounded" width="1600" height="3817" alt="Yohoshiro illustration published in Mensagem de Lisboa, 2025">
+                            <img src="./assets/wd-images/debates1.png" class="d-block mx-auto w-100 h-auto rounded" width="1600" height="3817" alt="Yohoshiro illustration published in Mensagem de Lisboa, 2025">
                         </picture>
 
                         <picture>
@@ -165,7 +166,7 @@
                 </div>
 
                 <nav class="project-pagination d-flex flex-row justify-content-between" aria-label="Project navigation">
-                    <a href="./lsd-connect" class="text-decoration-none">
+                    <a href="./lsd-connect.html" class="text-decoration-none">
                         <span class="cta-btn label-lg d-inline-flex align-items-center gap-2 p-2">
                             <svg width="17" height="9" viewBox="0 0 17 9" fill="none" aria-hidden="true" style="transform: scaleX(-1)">
                                 <path d="M12.621 0.5L16.5 4.5L12.621 8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -188,6 +189,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+        <script src="./js/nav-bar.js"></script>
         <script src="./js/projects.js"></script>
+        
     </body>
 </html>
