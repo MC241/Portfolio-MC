@@ -28,6 +28,30 @@ gsap.registerPlugin(ScrollTrigger);
     
 })();
 
+// ===== LAZY VIDEOS =====
+(function setupLazyVideos(){
+    const videos = document.querySelectorAll("video.lazy-video");
+    if(!videos.length) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if(entry.isIntersecting){
+                if(!video.dataset.loaded){
+                    video.querySelectorAll("source").forEach(s => {s.src = s.dataset.src});
+                    video.load();
+                    video.dataset.loaded="true";
+                }
+                if(!reduceMotion) video.play().catch(() =>{});
+            } else{
+                video.pause();
+            }
+        });
+    }, { rootMargin: "200px 0px"});
+    videos.forEach(v => videoObserver.observe(v));
+}) ();
+
 
 // ===== CAROUSELS =====
 //This stage builds a "stage progress" bar for a swiper carousel: a line of small stars with a gold fill that grows as you move through the slides, plus a row of numbered tag buttons that double as Swiper's pagination.

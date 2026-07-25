@@ -6,7 +6,7 @@ body{
 }
 
 .project-body{
-    max-width: min(100%,90vh);
+    max-width: min(100%,68ch);
     color: var(--lavender);
 }
 
@@ -35,7 +35,7 @@ body{
 }
 
 .link-project{
-    color: var(--purple);
+    color: var(--purple-glow);
 }
 
 .project-outcome{
