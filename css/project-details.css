@@ -10,6 +10,17 @@ body{
     color: var(--lavender);
 }
 
+.project-title{
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.005em;
+}
+
+.project-page{
+    padding-top: calc(var(--nav-h) + 1rem);
+}
+
 .project-number{
     color: var(--lavender-cue);
 }
@@ -30,6 +41,10 @@ body{
 }
 
 .project-pullquote{
+    font-size: clamp(1.625rem, 2.2vw, 2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0;
     color: var(--lavender);
     border-left: 2px solid var(--gold);
 }
@@ -46,6 +61,32 @@ body{
     color: var(--lavender-dim);
 }
 
+/*==========================================FOOTER PROMPT==========================================*/
+.footer-prompt{
+    color:var(--lavender);
+}
+
+.footer-cta{
+    min-height: 44px;
+    color: var(--gold);
+    transition: color var(--duration-standard) var(--ease-standard);
+}
+
+@media (hover: hover){
+    .footer-cta span:hover:not(:active){
+        color: var(--gold-bright);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-color: var(--gold-bright);
+        transition: color var(--duration-standard) var(--ease-standard);
+    }
+}
+
+.footer-cta:focus-visible{
+    color: var(--gold-bright);
+    outline: 1px solid var(--gold);
+    outline-offset: 4px;
+}
 /*========================================CAROUSEL PROGRESS BAR===================================*/
 /*just a fallback value for the progress bar's width in case JavaScript fails to calculate it.*/
 .stage-progress{
@@ -99,6 +140,34 @@ body{
 
 .stage-tags{
     margin-top: 14px;
+}
+
+.stage-playpause{
+    min-width: 44px;
+    min-height: 44px;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--lavender);
+    cursor: pointer;
+    transition: color var(--duration-standard) var(--ease-standard);
+}
+
+.stage-playpause svg{
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+@media (hover: hover){
+    .stage-playpause:hover:not(:active){
+        color: var(--gold);
+    }
+}
+
+.stage-playpause:focus-visible{
+    outline: 1px solid var(--gold-dim);
+    outline-offset: 3px;
 }
 
 .stage-tag{

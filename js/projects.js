@@ -29,22 +29,30 @@ gsap.registerPlugin(ScrollTrigger);
 })();
 
 // ===== LAZY VIDEOS =====
+//Videos only download their source once they are about to scroll into view and pause automatically when scrolled away.
 (function setupLazyVideos(){
     const videos = document.querySelectorAll("video.lazy-video");
     if(!videos.length) return;
 
+    //If reduceMotion is on, the user gets native controls added
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) videos.forEach(v =>{v.controls = true;});
+
+    //If the video enters the viewport, the video starts
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
             if(entry.isIntersecting){
+                //If the video hasn't been loaded, it copies each source element's into its real src attribute and then fetches the video.
                 if(!video.dataset.loaded){
                     video.querySelectorAll("source").forEach(s => {s.src = s.dataset.src});
                     video.load();
                     video.dataset.loaded="true";
                 }
+                //Unblocks browsers block autoplay 
                 if(!reduceMotion) video.play().catch(() =>{});
             } else{
+                //if the video leaves the viewport, the video pauses
                 video.pause();
             }
         });
@@ -86,6 +94,45 @@ function buildStarTrack(trackE1, slideCount) {
         starSlots.push(slot);
     }
     return starSlots;
+}
+
+//WCAG 2.2: Content that moves for more than five seconds must be pausable
+const ICON_PAUSE = '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>';
+const ICON_PLAY = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11a1 1 0 0 0 1.53.85l8.5-5.5a1 1 0 0 0 0-1.7l-8.5-5.5A1 1 0 0 0 4 2.5Z"/></svg>';
+
+//function that builds and inserts a toggle button
+function buildPlayPauseToggle(swiper, container, startPaused){
+    const btn = document.createElement("button");
+    btn.type = "button";
+
+    //Appending to the progress wrapper as swiper rewrites the pagination's inner HTML whenever it re-renders its bullets.
+    btn.className = "stage-playpause d-flex align-items-center justify-content-center mx-auto mt-2";
+
+    //Variable that tracks whether the slideshow is paused
+    let paused = startPaused;
+
+    function render(){
+        //Swapping icons
+        btn.innerHTML = paused ? ICON_PLAY : ICON_PAUSE;
+        //Updating screen-reader label
+        btn.setAttribute("aria-label", paused ? "Play slideshow" : "Pause slideshow");
+    }
+
+    btn.addEventListener("click", () => {
+        paused = !paused;
+        if(paused){
+            swiper.autoplay.stop();
+        } else {
+            swiper.autoplay.start();
+        }
+        render();
+    });
+
+    swiper.on("autoplayStop", () => {paused = true; render(); });
+    swiper.on("autoplayStart", () => {paused = false; render();});
+
+    render();
+    container.appendChild(btn);
 }
 
 //Returns the HTML string for a single tag. Swiper calls this itself, once per slide, whenever it builds its pagination.
@@ -154,16 +201,23 @@ function initStageProgress(root, settings) {
         }
     }
 
-    new Swiper (swiperE1, {
+    //prefers-reduced-motion also taken into account for autoplay
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const swiper = new Swiper (swiperE1, {
         loop: loop,
         speed: 700,
         effect:"fade",
         fadeEffect: {
             crossFade: true,
         },
+
+        //Autoplay is off for reduced motion, pauses on hover and stops when the user takes control.
         autoplay: {
+            enabled: !reduceMotion,
             delay: autoplayDelay,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
         },
         pagination: {
             el: tagsE1,
@@ -192,6 +246,8 @@ function initStageProgress(root, settings) {
             }
         },
     });
+
+    buildPlayPauseToggle(swiper, progressE1, reduceMotion);
 
     //Manually firing immediately to set the progress bar width to match the carousel, and to set the progress to the first star
     //Wihtout this,the page would load in a visible broken state, it would need to wait for the slideChange or resize to fire

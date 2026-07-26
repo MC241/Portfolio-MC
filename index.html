@@ -18,14 +18,16 @@
     <body>
         <a class="skip-link visually-hidden-focusable" href="#main-content">Skip to main content</a>
         <div id="splash" class="position-fixed top-0 start-0 w-100 vh-100 d-flex flex-column align-items-center justify-content-center gap-4">
-            <img src="./assets/star-small.svg" id="splashStar" alt="" aria-hidden="true">
-            <p class="splash-hint label-lg text-center" id="splashHint">CLICK TO ENTER</p>
+            <button type="button" id="splashEnter" class="splash-enter d-flex flex-column align-items-center gap-4" aria-label="Enter site">
+                <img src="./assets/star-small.svg" id="splashStar" alt="" aria-hidden="true">
+                <span class="splash-hint label-lg text-center" id="splashHint">CLICK TO ENTER</span>
+            </button>
         </div>
         <!-- NAV -->
         <header class="position-fixed top-0 start-0 w-100" id="mainHeader">
             <nav class="navbar navbar-expand-md px-3" aria-label="Main Navigation">
                 <button class="navbar-toggler border-0 ms-auto" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Changing navigation">
+                    data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navMenu">
@@ -74,10 +76,14 @@
                     </div>
                 </div>
 
-                <button type="button" id="scrollCue" class="scroll-indicator position-absolute start-0 end-0 w-auto d-flex flex-column align-items-center gap-1 bg-transparent border-0" aria-label="Scroll down to explore">
-                    <span class="label-lg">SCROLL</span>
-                    <div class="scroll-line"></div>
-                </button>
+                <!-- wrapping scroll indicator into a div so the button doesn't expand full width and the measured hit and focus area is only as wide as its content-->
+                <div class="scroll-indicator-wrap position-absolute start-0 end-0 d-flex justify-content-center">
+                    <button type="button" id="scrollCue" class="scroll-indicator d-flex flex-column align-items-center gap-1 bg-transparent border-0" aria-label="Scroll down to explore">
+                        <span class="label-lg">SCROLL</span>
+                        <div class="scroll-line"></div>
+                    </button>
+                </div>
+                
 
                 <!-- SVG drip edge – with aria-hidden -->
                 <svg class="drip-edge w-100 d-block" viewBox="0 0 1441 418" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
@@ -129,6 +135,7 @@
 
                     <img src="./assets/girl-edited.svg"
                             class="about-portrait img-fluid"
+                            loading="lazy"
                             width="736"
                             height="1326"
                             alt="">
@@ -157,7 +164,7 @@
                     </div>
                 </div>
             </section>
-            <section class="contacts-section d-flex w-100 py-5 px-3" id="contacts">
+            <section class="contacts-section d-flex align-items-center w-100 py-5 px-3" id="contacts">
                 <div class="contacts-inner mx-auto w-100">
                     <h2 class="contacts-title mb-5">Let's make something<em> together!</em></h2>
                     <p class="contacts-intro text-lg mb-5">

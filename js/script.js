@@ -11,9 +11,11 @@ ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load
     const splashHint = document.getElementById("splashHint");
     const heroStar = document.getElementById("heroStar");
 
+    const splashEnter = document.getElementById("splashEnter");
+
     if (!splash || !splashStar || !heroStar) return;
 
-    // If user refreshs, show splash animation
+    // If user refreshes, show splash animation
     const navType = performance.getEntriesByType("navigation")[0]?.type;
     if(navType == "reload"){
         sessionStorage.removeItem("splashShown");
@@ -83,10 +85,11 @@ ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load
         const splashRect = splashStar.getBoundingClientRect();
         const heroRect = heroStar.getBoundingClientRect();
 
-        //Finding excat position of star in hero so the splash star can travel to its ecat location and morph with hero star
+        //Finding exact position of star in hero so the splash star can travel to its exact location and morph with hero star
         const dx = (heroRect.left + heroRect.width / 2) - (splashRect.left + splashRect.width / 2);
         const dy = (heroRect.top + heroRect.height / 2) - (splashRect.top + splashRect.height / 2);
 
+        const focusWasInSplash = splash.contains(document.activeElement);
         const outro = gsap.timeline ({
             onComplete: () => {
                 splash.remove();
@@ -97,6 +100,10 @@ ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load
                 document.body.classList.remove("splash-active");
                 ScrollTrigger.getAll().forEach(t => t.enable());
                 ScrollTrigger.refresh(true);
+                if (focusWasInSplash){
+                    const cue = document.getElementById("scrollCue");
+                    if(cue) cue.focus();
+                }
                 outro.kill();
             }
         });
@@ -328,6 +335,7 @@ if (prefersReducedMotion){
     });
 }
 
+const sectionIds=["home", "projects", "about", "contacts"];
 // GO TO A SECTION FUCNTION
 function goToSection(section){
     isScrollingFromClick = true;
@@ -349,12 +357,22 @@ function goToSection(section){
 }
 
 // NAVIGATION THROUGH SCROLL
-const sectionIds=["home", "projects", "about", "contacts"];
-
 function getActiveSection() {
     // How far the user has scrolled from the top
     const navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--nav-h")) || 0;
 
+    //A section becomes active once its top crosses a thrid of the viewport instead of the nav edge
+    //so the nav switches while the section is filling the screen rather than a whole section later
+    const threshold = Math.max(navH + 10, window.innerHeight / 3);
+
+    //The last section is short enough that its top never reaches the threshold, even at maximum scroll,
+    //so the nav could never report it.
+    const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    if(maxScroll > 0 && window.scrollY >= maxScroll - 2){
+        for (let i = sectionIds.length - 1; i>=0; i--){
+            if(document.getElementById(sectionIds[i])) return sectionIds[i];
+        }
+    }
     //Lopping backwards through sections: last section whose top has scrolled past the navbar is the section currently on screen
     for (let i = sectionIds.length -1; i>= 0; i--){
         const el = document.getElementById(sectionIds[i]);
@@ -367,9 +385,10 @@ function getActiveSection() {
         }else{
             proxy = el;
         }
+        if(!proxy) continue;
         //getBoundingclientrest: gives the element's distance from the top of the viewport
         //when value <= navbar height + 10 px buffer => section has scroller into view past the nav bar so it's the active one.
-        if (proxy.getBoundingClientRect().top <= navH + 10){
+        if (proxy.getBoundingClientRect().top <= threshold){
             return sectionIds[i]
         }
     }
