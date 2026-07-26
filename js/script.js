@@ -387,7 +387,7 @@ function getActiveSection() {
         }
         if(!proxy) continue;
         //getBoundingclientrest: gives the element's distance from the top of the viewport
-        //when value <= navbar height + 10 px buffer => section has scroller into view past the nav bar so it's the active one.
+        //when value <= threshold => section has scrolled up into the top thrid of the screen so it's the active one.
         if (proxy.getBoundingClientRect().top <= threshold){
             return sectionIds[i]
         }
