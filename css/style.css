@@ -559,7 +559,7 @@ span.planet-enter.disabled,
     border-bottom: 1px solid color-mix(in oklab, var(--lavender-dim) 25%, transparent);
 }
 
-.about-fact-key, .contacts-link-key {
+.about-fact-key, .contacts-link-key{
     color: var(--lavender-cue);
 }
 
@@ -569,7 +569,7 @@ span.planet-enter.disabled,
     text-underline-offset: 4px;
     text-decoration-color: var(--purple-glow);
 }
-.about-fact-value {
+.about-fact-value, .note{
     color: var(--lavender-dim);
 }
 
