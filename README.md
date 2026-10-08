@@ -4,7 +4,7 @@ My personal portfolio: a space-themed site where each project is its own planet,
 
 **Live site:** [martacruz-design.vercel.app](https://martacruz-design.vercel.app)
 
-![Portfolio preview](assets/readme/preview.png)
+![Portfolio preview](assets/readme/portfolioscreens.png)
 
 ## The idea
 
