@@ -40,4 +40,4 @@ Do usability tests with real users, translate the website to portuguese, add my 
 
 ---
 
-Made by Marta Moreira da Cruz · [LinkedIn](https://linkedin.com/in/marta-moreira-da-cruz-309512254) · [Prisma PT](https://github.com/MC241/Prisma-PT)
+Made by Marta Moreira da Cruz · [LinkedIn](https://linkedin.com/in/marta-moreira-da-cruz-309512254) 
