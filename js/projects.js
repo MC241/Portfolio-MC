@@ -60,7 +60,15 @@ gsap.registerPlugin(ScrollTrigger);
     videos.forEach(v => videoObserver.observe(v));
 }) ();
 
+//Fullscreen video toggle button
 
+document.querySelectorAll('.mockup-video').forEach((video) => {
+    video.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            (video.requestFullscreen || video.webkitEnterFullscreen).call(video);
+        }
+    });
+});
 // ===== CAROUSELS =====
 //This stage builds a "stage progress" bar for a swiper carousel: a line of small stars with a gold fill that grows as you move through the slides, plus a row of numbered tag buttons that double as Swiper's pagination.
 
